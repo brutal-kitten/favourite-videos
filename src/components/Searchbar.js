@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class Searchbar extends Component {
 
   state = {
-    query: ''
+    query: '',
+    searchResult: true,
+    video: ''
   }
 
   handleSubmit = (e) => {
@@ -35,6 +37,13 @@ class Searchbar extends Component {
           />
           <button>Submit</button>
         </form>
+        <div className="search-video-result">
+          {this.state.searchResult === false && (
+            <div className="noresult">
+            <h3>There is no such video</h3>
+          </div>
+        )}
+        </div>
       </div>
     )
   }

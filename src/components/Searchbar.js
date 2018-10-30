@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ShowVideo from './ShowVideo';
 
 class Searchbar extends Component {
 
@@ -44,6 +45,7 @@ class Searchbar extends Component {
           </div>
         )}
         </div>
+        <ShowVideo/>
       </div>
     )
   }

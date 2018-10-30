@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Searchbar from './components/Searchbar';
 import './App.css';
 
 class App extends Component {
@@ -9,6 +9,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Your favorite videos </h1>
         </header>
+        <Searchbar/>
       </div>
     );
   }

@@ -12,3 +12,8 @@
   font-size: 18px;
   color: grey;
 }
+
+input {
+  width: 60%;
+  border: 1px solid grey ;
+}

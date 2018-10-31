@@ -6,7 +6,7 @@ class Searchbar extends Component {
   state = {
     query: '',
     searchResult: true,
-    video: ''
+    videoId: 'JiyMaWOZGoA'
   }
 
   handleSubmit = (e) => {
@@ -45,7 +45,9 @@ class Searchbar extends Component {
           </div>
         )}
         </div>
-        <ShowVideo/>
+        <ShowVideo
+          videoId={this.state.videoId}
+        />
       </div>
     )
   }

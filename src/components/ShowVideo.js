@@ -17,7 +17,7 @@ class ShowVideo extends Component {
 
     return (
       <YouTube
-        videoId="JiyMaWOZGoA"
+        videoId={this.props.videoId}
         opts={opts}
         onReady={this._onReady}
       />

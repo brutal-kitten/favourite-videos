@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
+import YouTube from 'react-youtube';
+
 
 class ShowVideo extends Component {
 
+
   render () {
 
+    const opts = {
+      height: '390',
+      width: '640',
+      playerVars: {
+        autoplay: 1
+      }
+    };
+
     return (
-      <div className="showvideo">
-        <div id="player"><iframe width="560" height="315" src="https://www.youtube.com/embed/JiyMaWOZGoA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      </div>
-    )
+      <YouTube
+        videoId="JiyMaWOZGoA"
+        opts={opts}
+        onReady={this._onReady}
+      />
+    );
+  }
+
+  _onReady(event) {
+    event.target.pauseVideo();
   }
 }
 

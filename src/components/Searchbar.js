@@ -6,12 +6,32 @@ class Searchbar extends Component {
   state = {
     query: '',
     searchResult: true,
-    videoId: 'JiyMaWOZGoA'
+    videoId: ''
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+    this.detectID();
+  }
+
+  setId = (newId) => {
+    this.setState({videoId : newId});
+  }
+
+  detectID = () => {
+    let query = this.state.query;
+    if (query.match('https://youtu.be')) {
+      let id = query.split('youtu.be/')[1];
+      console.log(id);
+      this.setId(id);
+    } else if(query.match('https://www.youtube.com')) {
+              let id = query.split('v=')[1];
+              console.log(id);
+              this.setId(id);
+            } else {
+              console.log(query);
+                this.setId(query);
+            };
   }
 
   /*update state*/

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Infobox from './Infobox';
 import Picture from './Picture';
+import ButtonsPanel from './ButtonsPanel';
 
 
 class VideoContainer extends Component {
@@ -44,6 +45,8 @@ class VideoContainer extends Component {
             date={this.state.date}
             views={this.state.views}
             likes={this.state.likes}
+          />
+          <ButtonsPanel
           />
         </div>
     )

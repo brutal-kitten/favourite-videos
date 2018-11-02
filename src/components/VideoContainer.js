@@ -17,7 +17,8 @@ class VideoContainer extends Component {
 
   componentDidMount() {
     if(this.state.fetchAgain) {
-      fetch(`https://www.googleapis.com/youtube/v3/videos?id=hY7m5jjJ9mM&key=AIzaSyB7asSzTvcMogycBslu8o4RB3DjOumaqtA&part=snippet,contentDetails,statistics,status`)
+      const url = `https://www.googleapis.com/youtube/v3/videos?id=${this.props.id}&key=AIzaSyB7asSzTvcMogycBslu8o4RB3DjOumaqtA&part=snippet,contentDetails,statistics,status`
+      fetch(url)
         .then((response) => response.json())
         .then((result) => {
           console.log(result.items[0]);
@@ -30,7 +31,7 @@ class VideoContainer extends Component {
             thumbnails: result.items[0].snippet.thumbnails.default.url
           });
         });
-      }
+      } 
   }
 
   render() {

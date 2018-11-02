@@ -4,18 +4,15 @@ import ListOfVideos from './components/ListOfVideos'
 import SearchResult from './components/SearchResult'
 import './App.css';
 
+
 class App extends Component {
 
   state = {
     currentId: 'hY7m5jjJ9mM',
     listOfFav: [],
-    defaultList: []
+    defaultList: true,
+    showSearchResult: false
   }
-
-  //createURL = () => {
-  //url = `https://www.googleapis.com/youtube/v3/videos?id=${this.state.currentId}&key=AIzaSyB7asSzTvcMogycBslu8o4RB3DjOumaqtA&part=snippet,contentDetails,statistics,status`;
-  //  return url;
-  //}
 
 
   render() {
@@ -25,9 +22,11 @@ class App extends Component {
           <h1>Your favorite videos </h1>
         </header>
         <Searchbar/>
-        <SearchResult
-          id={this.state.currentId}
-        />
+        {this.state.showSearchResult && (
+          <SearchResult
+            id={this.state.currentId}
+          />
+        )}
         <ListOfVideos
           defaultList={this.state.defaultList}
           listOfFav={this.state.listOfFav}

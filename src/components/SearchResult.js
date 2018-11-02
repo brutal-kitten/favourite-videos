@@ -3,6 +3,8 @@ import VideoContainer from './VideoContainer';
 
 class SearchResult extends Component {
 
+  
+
   render() {
 
     return (

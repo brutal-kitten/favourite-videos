@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Infobox from './Infobox';
+import Picture from './Picture';
 
 
 class VideoContainer extends Component {
 
   state = {
-    info: [],
     fetchAgain: true,
     title: '',
     date: '',
     likes: '',
-    views: ''
+    views: '',
+    thumbnails: ''
   }
 
   componentDidMount() {
@@ -21,11 +22,11 @@ class VideoContainer extends Component {
           console.log(result.items[0]);
           this.setState({
             fetchAgain: false,
-            info: result.items,
             title: result.items[0].snippet.title,
             date: result.items[0].snippet.publishedAt,
             views: result.items[0].statistics.viewCount,
-            likes: result.items[0].statistics.likeCount
+            likes: result.items[0].statistics.likeCount,
+            thumbnails: result.items[0].snippet.thumbnails.default.url
           });
         });
       }
@@ -35,6 +36,9 @@ class VideoContainer extends Component {
 
     return (
         <div className="container">
+          <Picture
+            thumbnails={this.state.thumbnails}
+          />
           <Infobox
             title={this.state.title}
             date={this.state.date}

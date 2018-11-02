@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Play from './Play';
+import Delete from './Delete';
 
 class ButtonsPanel extends Component {
 

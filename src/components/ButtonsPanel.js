@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Play from './Play';
 
 class ButtonsPanel extends Component {
 

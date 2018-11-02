@@ -65,12 +65,12 @@ class Searchbar extends Component {
           </div>
         )}
         </div>
-        <ShowVideo
+        {/* <ShowVideo
           videoId={this.state.videoId}
-        />
+        /> */}
       </div>
     )
   }
 }
 
-export default Searchbar
+export default Searchbar;

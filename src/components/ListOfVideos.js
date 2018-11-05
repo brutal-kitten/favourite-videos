@@ -12,12 +12,16 @@ class ListOfVideos extends Component {
       {this.props.defaultList && (videoOf10.map((item) => (
         <VideoContainer
           id={item.id}
+          key={item.id}
+          fetchAgain={true}
         />
         )))
       }
       {this.props.listOfFav.length > 0 && (this.props.listOfFav.map((item) => (
         <VideoContainer
+          key={item.id}
           id={item.id}
+          fetchAgain={true}
         />
       ))
       )}

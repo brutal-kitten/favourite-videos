@@ -3,7 +3,7 @@ import VideoContainer from './VideoContainer';
 
 class SearchResult extends Component {
 
-  
+
 
   render() {
 
@@ -11,6 +11,7 @@ class SearchResult extends Component {
       <div className="searchResult">
       <VideoContainer
         id={this.props.id}
+        fetchAgain={true}
       />
       </div>
     )

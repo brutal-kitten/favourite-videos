@@ -7,16 +7,16 @@ import ButtonsPanel from './ButtonsPanel';
 class VideoContainer extends Component {
 
   state = {
-    fetchAgain: true,
     title: '',
     date: '',
     likes: '',
     views: '',
-    thumbnails: ''
+    thumbnails: '',
+    error: false
   }
 
   componentDidMount() {
-    if(this.state.fetchAgain) {
+    if(this.props.fetchAgain) {
       const url = `https://www.googleapis.com/youtube/v3/videos?id=${this.props.id}&key=AIzaSyB7asSzTvcMogycBslu8o4RB3DjOumaqtA&part=snippet,contentDetails,statistics,status`
       fetch(url)
         .then((response) => response.json())
@@ -31,13 +31,18 @@ class VideoContainer extends Component {
             thumbnails: result.items[0].snippet.thumbnails.default.url
           });
         });
-      } 
+      }
   }
 
   render() {
 
     return (
         <div className="container">
+          {this.state.error === true && (
+            <div className="noresult">
+            <h3>There is no such video</h3>
+            </div>
+          )}
           <Picture
             thumbnails={this.state.thumbnails}
           />

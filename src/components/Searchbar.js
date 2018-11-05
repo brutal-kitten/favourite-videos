@@ -12,11 +12,12 @@ class Searchbar extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.clearID();
     this.detectID();
   }
 
   setId = (newId) => {
-    this.setState({videoId : newId});
+    this.setState({videoId: newId});
     this.setState({searchResult: true});
     this.clearQuery();
   }
@@ -47,6 +48,10 @@ class Searchbar extends Component {
     this.setState({query: ''});
   }
 
+  clearID = () => {
+    this.setState({videoId: ''});
+  }
+
   render () {
 
     return (
@@ -62,9 +67,9 @@ class Searchbar extends Component {
           <button>Submit</button>
         </form>
         <div className="search-video-result">
-          
           {this.state.searchResult === true && (
             <SearchResult
+              key={this.state.videoId}
               id={this.state.videoId}
             />
           )

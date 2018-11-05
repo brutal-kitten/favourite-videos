@@ -7,7 +7,7 @@ class ButtonsPanel extends Component {
 
   render() {
     return(
-      <div className="panel" >
+      <div className="panel grid-item" >
         <Play />
         <Delete />
         <AddFav

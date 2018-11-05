@@ -19,7 +19,7 @@ class ListOfVideos extends Component {
         />
         )))
       }
-      {this.props.showFavoriteList && (this.props.listOfFav.map((item) => (
+      {this.props.favoriteList && (this.props.listOfFav.map((item) => (
         <VideoContainer
           key={item.id}
           id={item.id}

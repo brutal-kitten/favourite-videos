@@ -4,7 +4,7 @@ class Picture extends Component {
 
   render() {
     return(
-      <div className="picture" >
+      <div className="picture grid-item" >
         <img src={this.props.thumbnails} alt="cover picture of video" />
       </div>
     )

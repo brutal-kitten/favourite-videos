@@ -16,7 +16,7 @@ class Infobox extends Component {
 
 
     return (
-      <div className="infobox">
+      <div className="infobox grid-item">
         <div className="title"> Title: <span>{this.props.title}</span></div>
         <div className="addedAt">Published At: <span> {this.props.date}</span></div>
         <div className="likes"><span>{this.props.likes}</span> Likes</div>

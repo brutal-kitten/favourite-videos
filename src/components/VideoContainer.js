@@ -37,7 +37,7 @@ class VideoContainer extends Component {
   render() {
 
     return (
-        <div className="container">
+        <div className="grid-container">
           {this.state.error === true && (
             <div className="noresult">
             <h3>There is no such video</h3>
@@ -46,15 +46,15 @@ class VideoContainer extends Component {
           <Picture
             thumbnails={this.state.thumbnails}
           />
+          <ButtonsPanel
+            id={this.props.id}
+            addToFavorive={this.props.addToFavorive}
+          />
           <Infobox
             title={this.state.title}
             date={this.state.date}
             views={this.state.views}
             likes={this.state.likes}
-          />
-          <ButtonsPanel
-            id={this.props.id}
-            addToFavorive={this.props.addToFavorive}
           />
         </div>
     )

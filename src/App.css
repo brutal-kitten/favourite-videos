@@ -17,3 +17,13 @@ input {
   width: 60%;
   border: 1px solid grey ;
 }
+
+.infobox {
+  font-size: 12px;
+}
+
+.grid-container {
+  display: inline-grid;
+  width: 90vw;
+  grid-template-columns: 20% 10% auto;
+}

@@ -8,9 +8,9 @@ import favoriteVideo from './Favorite';
 class App extends Component {
 
   state = {
-    listOfFav: [],
-    showDefaultList: true,
-    showFavoriteList: false
+    listOfFav: favoriteVideo,
+    showDefaultList: false,
+    showFavoriteList: true
   }
 
   addToFavorive = (videoID) => {

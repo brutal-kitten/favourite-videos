@@ -12,6 +12,7 @@ class SearchResult extends Component {
       <VideoContainer
         id={this.props.id}
         fetchAgain={true}
+        addToFavorive={this.props.addToFavorive}
       />
       </div>
     )

@@ -71,6 +71,7 @@ class Searchbar extends Component {
             <SearchResult
               key={this.state.videoId}
               id={this.state.videoId}
+              addToFavorive={this.props.addToFavorive}
             />
           )
           }

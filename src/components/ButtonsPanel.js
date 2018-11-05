@@ -10,7 +10,10 @@ class ButtonsPanel extends Component {
       <div className="panel" >
         <Play />
         <Delete />
-        <AddFav />
+        <AddFav
+          id={this.props.id}
+          addToFavorive={this.props.addToFavorive}
+        />
       </div>
     )
   }

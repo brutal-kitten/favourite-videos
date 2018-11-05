@@ -53,6 +53,8 @@ class VideoContainer extends Component {
             likes={this.state.likes}
           />
           <ButtonsPanel
+            id={this.props.id}
+            addToFavorive={this.props.addToFavorive}
           />
         </div>
     )

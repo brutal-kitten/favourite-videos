@@ -3,13 +3,19 @@ import Searchbar from './components/Searchbar';
 import ListOfVideos from './components/ListOfVideos'
 import './App.css';
 
+const favoriteVideo = [];
 
 class App extends Component {
 
   state = {
-    currentId: 'hY7m5jjJ9mM',
     listOfFav: [],
     defaultList: true
+  }
+
+  addToFavorive = (videoID) => {
+    favoriteVideo.push({id: videoID});
+    console.log(favoriteVideo);
+    this.setState({listOfFav: favoriteVideo});
   }
 
 
@@ -19,10 +25,13 @@ class App extends Component {
         <header className="App-header">
           <h1>Your favorite videos </h1>
         </header>
-        <Searchbar/>
+        <Searchbar
+          addToFavorive={this.addToFavorive}
+        />
         <ListOfVideos
           defaultList={this.state.defaultList}
           listOfFav={this.state.listOfFav}
+          addToFavorive={this.addToFavorive}
         />
       </div>
     );

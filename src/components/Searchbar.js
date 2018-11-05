@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import ShowVideo from './ShowVideo';
+import SearchResult from './SearchResult'
 
 class Searchbar extends Component {
 
   state = {
     query: '',
-    searchResult: true,
+    searchResult: false,
+    error: false,
     videoId: ''
   }
 
@@ -16,6 +18,7 @@ class Searchbar extends Component {
 
   setId = (newId) => {
     this.setState({videoId : newId});
+    this.setState({searchResult: true});
   }
 
   detectID = () => {
@@ -59,11 +62,17 @@ class Searchbar extends Component {
           <button>Submit</button>
         </form>
         <div className="search-video-result">
-          {this.state.searchResult === false && (
+          {this.state.error === true && (
             <div className="noresult">
             <h3>There is no such video</h3>
           </div>
         )}
+          {this.state.searchResult === true && (
+            <SearchResult
+              id={this.state.videoId}
+            />
+          )
+          }
         </div>
         {/* <ShowVideo
           videoId={this.state.videoId}

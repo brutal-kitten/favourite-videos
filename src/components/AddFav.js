@@ -10,7 +10,7 @@ class AddFav extends Component {
   render() {
     return(
       <div className="addFav" >
-        <button onClick={(event) => this.handleClick(event)}>Add to favorite</button>
+        <button type="button" onClick={(event) => this.handleClick(event)}>Add to favorite</button>
       </div>
     )
   }

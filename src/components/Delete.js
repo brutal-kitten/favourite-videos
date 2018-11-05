@@ -5,7 +5,7 @@ class Delete extends Component {
   render() {
     return(
       <div className="delete" >
-        <button>Delete</button>
+        <button type="button">Delete</button>
       </div>
     )
   }

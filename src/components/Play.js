@@ -5,7 +5,7 @@ class Play extends Component {
   render() {
     return(
       <div className="play" >
-        <button>Play</button>
+        <button type="button">Play</button>
       </div>
     )
   }

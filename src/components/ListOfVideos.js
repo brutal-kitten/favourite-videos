@@ -6,6 +6,7 @@ class ListOfVideos extends Component {
 
 
 
+
   render() {
     return(
       <div className="list">
@@ -18,7 +19,7 @@ class ListOfVideos extends Component {
         />
         )))
       }
-      {this.props.listOfFav.length > 0 && (this.props.listOfFav.map((item) => (
+      {this.props.showFavoriteList && (this.props.listOfFav.map((item) => (
         <VideoContainer
           key={item.id}
           id={item.id}

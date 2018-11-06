@@ -30,6 +30,9 @@ class App extends Component {
     let favoriteVideo = this.state.listOfFav.filter(item => (item.id !== videoID));
     localStorage.setItem('fav', JSON.stringify(favoriteVideo));
     this.setState({listOfFav: favoriteVideo});
+    if (this.state.currentSearchId === videoID) {
+      this.changeShowSearchResult(false);
+    }
   }
 
   changeShowSearchResult = (changeTo) => {

@@ -4,6 +4,10 @@ import YouTube from 'react-youtube';
 
 class ShowVideo extends Component {
 
+  handleClick = (event) => {
+    event.preventDefault();
+    this.props.closeModal();
+  }
 
   render () {
 
@@ -16,11 +20,14 @@ class ShowVideo extends Component {
     };
 
     return (
-      <YouTube
-        videoId={this.props.videoId}
-        opts={opts}
-        onReady={this._onReady}
-      />
+      <div className="window">
+        <button type="button" onClick={(event) => this.handleClick(event)}>Close</button>
+        <YouTube
+          videoId={this.props.videoId}
+          opts={opts}
+          onReady={this._onReady}
+        />
+      </div>
     );
   }
 

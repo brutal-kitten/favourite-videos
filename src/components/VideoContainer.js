@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Infobox from './Infobox';
 import Picture from './Picture';
 import ButtonsPanel from './ButtonsPanel';
-
+import ShowVideo from './ShowVideo';
+import Modal from './Modal'
 
 class VideoContainer extends Component {
 
@@ -12,7 +13,16 @@ class VideoContainer extends Component {
     likes: '',
     views: '',
     thumbnails: '',
-    error: false
+    error: false,
+    showModal: false
+  }
+
+  playVideo = (id) => {
+    this.setState({showModal: true});
+  }
+
+  closeModal = () => {
+    this.setState({showModal: false})
   }
 
   componentDidMount() {
@@ -37,7 +47,7 @@ class VideoContainer extends Component {
   render() {
 
     return (
-        <div className="grid-container">
+        <div className="grid-container" id="videocontainer">
           {this.state.error === true && (
             <div className="noresult">
             <h3>There is no such video</h3>
@@ -45,20 +55,25 @@ class VideoContainer extends Component {
           )}
           <Picture
             thumbnails={this.state.thumbnails}
-            playVideo={this.props.playVideo}
+            playVideo={this.playVideo}
             id={this.props.id}
           />
           <ButtonsPanel
             id={this.props.id}
             addToFavorive={this.props.addToFavorive}
             deleteVideo={this.props.deleteVideo}
-            playVideo={this.props.playVideo}
+            playVideo={this.playVideo}
           />
           <Infobox
             title={this.state.title}
             date={this.state.date}
             views={this.state.views}
             likes={this.state.likes}
+          />
+          <Modal
+            videoId={this.props.id}
+            showModal={this.state.showModal}
+            closeModal={this.closeModal}
           />
         </div>
     )

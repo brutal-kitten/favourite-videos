@@ -2,25 +2,35 @@ import React, { Component } from 'react';
 import Searchbar from './components/Searchbar';
 import ListOfVideos from './components/ListOfVideos'
 import './App.css';
-import favoriteVideo from './Favorite';
+//import favoriteVideo from './Favorite';
 
 
 class App extends Component {
 
   state = {
-    listOfFav: favoriteVideo,
+    listOfFav: [],
     showDefaultList: false,
     showFavoriteList: true
   }
 
   addToFavorive = (videoID) => {
+    let favoriteVideo = this.state.listOfFav;
     if (this.state.listOfFav.filter(item => (item.id === videoID)).length < 1) {
       favoriteVideo.push({id: videoID});
       console.log(favoriteVideo);
+      localStorage.setItem('fav', JSON.stringify(favoriteVideo));
       this.setState({listOfFav: favoriteVideo});
-      console.log(this.state.listOfFav);
     };
   }
+
+  componentDidMount(){
+    const cachedList = localStorage.getItem('fav');
+    if (cachedList) {
+      this.setState({listOfFav: JSON.parse(cachedList)});
+    };
+  };
+
+
 
 
   render() {

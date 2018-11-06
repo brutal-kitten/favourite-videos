@@ -26,4 +26,14 @@ input {
   display: inline-grid;
   width: 90vw;
   grid-template-columns: 20% 10% auto;
+  margin: 5px 0 5px 0;
+}
+
+.searchbar {
+  margin: 2% 0 2% 0;
+}
+
+.list,
+.searchResult {
+  margin: 10px 5% 5px 5%;
 }

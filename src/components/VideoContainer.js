@@ -45,11 +45,14 @@ class VideoContainer extends Component {
           )}
           <Picture
             thumbnails={this.state.thumbnails}
+            playVideo={this.props.playVideo}
+            id={this.props.id}
           />
           <ButtonsPanel
             id={this.props.id}
             addToFavorive={this.props.addToFavorive}
             deleteVideo={this.props.deleteVideo}
+            playVideo={this.props.playVideo}
           />
           <Infobox
             title={this.state.title}

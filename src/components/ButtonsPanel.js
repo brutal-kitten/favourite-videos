@@ -8,7 +8,10 @@ class ButtonsPanel extends Component {
   render() {
     return(
       <div className="panel grid-item" >
-        <Play />
+        <Play
+        id={this.props.id}
+        playVideo={this.props.playVideo}
+        />
         <Delete
           deleteVideo={this.props.deleteVideo}
           id={this.props.id}

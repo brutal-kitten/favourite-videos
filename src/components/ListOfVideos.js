@@ -18,6 +18,7 @@ class ListOfVideos extends Component {
           fetchAgain={true}
           addToFavorive={this.props.addToFavorive}
           deleteVideo={this.props.deleteVideo}
+          playVideo={this.props.playVideo}
         />
         )))
       }
@@ -28,6 +29,7 @@ class ListOfVideos extends Component {
           fetchAgain={true}
           addToFavorive={this.props.addToFavorive}
           deleteVideo={this.props.deleteVideo}
+          playVideo={this.props.playVideo}
         />
       ))
       )}

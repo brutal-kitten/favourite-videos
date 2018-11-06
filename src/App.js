@@ -43,6 +43,10 @@ class App extends Component {
     this.setState({currentSearchId: id});
   }
 
+  playVideo = (id) => {
+    console.log(id);
+  }
+
   componentDidMount(){
     const cachedList = localStorage.getItem('fav');
     if (cachedList) {
@@ -64,6 +68,7 @@ class App extends Component {
           deleteVideo={this.deleteVideo}
           changeShowSearchResult={this.changeShowSearchResult}
           setCurrentSearchId={this.setCurrentSearchId}
+          playVideo={this.playVideo}
         />
         <div className="search-video-result">
           {this.state.showSearchResult === true && (
@@ -72,6 +77,7 @@ class App extends Component {
               id={this.state.currentSearchId}
               addToFavorive={this.addToFavorive}
               deleteVideo={this.deleteVideo}
+              playVideo={this.playVideo}
             />
           )
           }
@@ -82,6 +88,7 @@ class App extends Component {
           addToFavorive={this.addToFavorive}
           favoriteList={this.state.showFavoriteList}
           deleteVideo={this.deleteVideo}
+          playVideo={this.playVideo}
         />
       </div>
     );

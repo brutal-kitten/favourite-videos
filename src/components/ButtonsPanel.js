@@ -9,7 +9,10 @@ class ButtonsPanel extends Component {
     return(
       <div className="panel grid-item" >
         <Play />
-        <Delete />
+        <Delete
+          deleteVideo={this.props.deleteVideo}
+          id={this.props.id}
+        />
         <AddFav
           id={this.props.id}
           addToFavorive={this.props.addToFavorive}

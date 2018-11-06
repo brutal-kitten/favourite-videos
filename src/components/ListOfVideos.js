@@ -17,6 +17,7 @@ class ListOfVideos extends Component {
           key={item.id}
           fetchAgain={true}
           addToFavorive={this.props.addToFavorive}
+          deleteVideo={this.props.deleteVideo}
         />
         )))
       }
@@ -26,6 +27,7 @@ class ListOfVideos extends Component {
           id={item.id}
           fetchAgain={true}
           addToFavorive={this.props.addToFavorive}
+          deleteVideo={this.props.deleteVideo}
         />
       ))
       )}

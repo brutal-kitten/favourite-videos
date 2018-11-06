@@ -72,6 +72,7 @@ class Searchbar extends Component {
               key={this.state.videoId}
               id={this.state.videoId}
               addToFavorive={this.props.addToFavorive}
+              deleteVideo={this.props.deleteVideo}
             />
           )
           }

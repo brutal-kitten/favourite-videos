@@ -13,6 +13,7 @@ class SearchResult extends Component {
         id={this.props.id}
         fetchAgain={true}
         addToFavorive={this.props.addToFavorive}
+        deleteVideo={this.props.deleteVideo}
       />
       </div>
     )

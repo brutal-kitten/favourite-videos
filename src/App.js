@@ -23,6 +23,14 @@ class App extends Component {
     };
   }
 
+  deleteVideo = (videoID) => {
+    let favoriteVideo = this.state.listOfFav.filter(item => (item.id !== videoID));
+    localStorage.setItem('fav', JSON.stringify(favoriteVideo));
+    this.setState({listOfFav: favoriteVideo});
+
+
+  }
+
   componentDidMount(){
     const cachedList = localStorage.getItem('fav');
     if (cachedList) {
@@ -41,12 +49,14 @@ class App extends Component {
         </header>
         <Searchbar
           addToFavorive={this.addToFavorive}
+          deleteVideo={this.deleteVideo}
         />
         <ListOfVideos
           defaultList={this.state.showDefaultList}
           listOfFav={this.state.listOfFav}
           addToFavorive={this.addToFavorive}
           favoriteList={this.state.showFavoriteList}
+          deleteVideo={this.deleteVideo}
         />
       </div>
     );

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Searchbar from './components/Searchbar';
 import ListOfVideos from './components/ListOfVideos'
 import './App.css';
-//import favoriteVideo from './Favorite';
+import SearchResult from './components/SearchResult'
+
 
 
 class App extends Component {
@@ -10,7 +11,9 @@ class App extends Component {
   state = {
     listOfFav: [],
     showDefaultList: false,
-    showFavoriteList: true
+    showFavoriteList: true,
+    showSearchResult: false,
+    currentSearchId: ''
   }
 
   addToFavorive = (videoID) => {
@@ -27,8 +30,14 @@ class App extends Component {
     let favoriteVideo = this.state.listOfFav.filter(item => (item.id !== videoID));
     localStorage.setItem('fav', JSON.stringify(favoriteVideo));
     this.setState({listOfFav: favoriteVideo});
+  }
 
+  changeShowSearchResult = (changeTo) => {
+    this.setState({showSearchResult: changeTo});
+  }
 
+  setCurrentSearchId = (id) => {
+    this.setState({currentSearchId: id});
   }
 
   componentDidMount(){
@@ -50,7 +59,20 @@ class App extends Component {
         <Searchbar
           addToFavorive={this.addToFavorive}
           deleteVideo={this.deleteVideo}
+          changeShowSearchResult={this.changeShowSearchResult}
+          setCurrentSearchId={this.setCurrentSearchId}
         />
+        <div className="search-video-result">
+          {this.state.showSearchResult === true && (
+            <SearchResult
+              key={this.state.currentSearchId}
+              id={this.state.currentSearchId}
+              addToFavorive={this.addToFavorive}
+              deleteVideo={this.deleteVideo}
+            />
+          )
+          }
+        </div>
         <ListOfVideos
           defaultList={this.state.showDefaultList}
           listOfFav={this.state.listOfFav}

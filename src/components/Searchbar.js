@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import ShowVideo from './ShowVideo';
-import SearchResult from './SearchResult'
+
 
 class Searchbar extends Component {
 
   state = {
     query: '',
-    searchResult: false,
     videoId: ''
   }
 
@@ -18,7 +17,8 @@ class Searchbar extends Component {
 
   setId = (newId) => {
     this.setState({videoId: newId});
-    this.setState({searchResult: true});
+    this.props.setCurrentSearchId(newId);
+    this.props.changeShowSearchResult(true);
     this.clearQuery();
   }
 
@@ -50,6 +50,7 @@ class Searchbar extends Component {
 
   clearID = () => {
     this.setState({videoId: ''});
+    this.props.setCurrentSearchId('');
   }
 
   render () {
@@ -66,17 +67,6 @@ class Searchbar extends Component {
           />
           <button>Submit</button>
         </form>
-        <div className="search-video-result">
-          {this.state.searchResult === true && (
-            <SearchResult
-              key={this.state.videoId}
-              id={this.state.videoId}
-              addToFavorive={this.props.addToFavorive}
-              deleteVideo={this.props.deleteVideo}
-            />
-          )
-          }
-        </div>
         {/* <ShowVideo
           videoId={this.state.videoId}
         /> */}

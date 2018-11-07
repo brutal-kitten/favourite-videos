@@ -32,19 +32,28 @@ class VideoContainer extends Component {
         .then((response) => response.json())
         .then((result) => {
           console.log(result.items[0]);
-          this.setState({
-            fetchAgain: false,
-            title: result.items[0].snippet.title,
-            date: result.items[0].snippet.publishedAt,
-            views: result.items[0].statistics.viewCount,
-            likes: result.items[0].statistics.likeCount,
-            thumbnails: result.items[0].snippet.thumbnails.default.url
-          });
-        });
+          if(result.items[0]) {
+            this.setState({
+              fetchAgain: false,
+              title: result.items[0].snippet.title,
+              date: result.items[0].snippet.publishedAt,
+              views: result.items[0].statistics.viewCount,
+              likes: result.items[0].statistics.likeCount,
+              thumbnails: result.items[0].snippet.thumbnails.default.url
+            });
+          } else {
+            this.props.changeSearchResultError(true);
+            this.props.deleteVideo(this.props.id);
+
+          }
+
+        })
       }
   }
 
   render() {
+
+
 
     return (
         <div className="grid-container" id="videocontainer">

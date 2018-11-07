@@ -10,7 +10,7 @@ class ListOfVideos extends Component {
   render() {
     return(
       <div className="list">
-      <h3>Favorite video</h3>
+      <h3>Your list of videos</h3>
       {this.props.defaultList && (videoOf10.map((item) => (
         <VideoContainer
           id={item.id}
@@ -30,6 +30,7 @@ class ListOfVideos extends Component {
           addToFavorive={this.props.addToFavorive}
           deleteVideo={this.props.deleteVideo}
           playVideo={this.props.playVideo}
+          changeSearchResultError={this.props.changeSearchResultError}
         />
       ))
       )}

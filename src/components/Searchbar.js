@@ -13,13 +13,15 @@ class Searchbar extends Component {
     e.preventDefault();
     this.clearID();
     this.detectID();
+    this.props.changeSearchResultError(false);
   }
 
   setId = (newId) => {
     this.setState({videoId: newId});
     this.props.setCurrentSearchId(newId);
-    this.props.changeShowSearchResult(true);
     this.clearQuery();
+    this.props.addToFavorive(newId);
+  
   }
 
   detectID = () => {
@@ -57,7 +59,7 @@ class Searchbar extends Component {
 
     return (
       <div className="searchbar">
-        <h2>Find your favorite video</h2>
+        <h2>Make a list of your favorite videos</h2>
         <form onSubmit={(event) => this.handleSubmit(event)}>
           Enter video URL or identifier: <br/>
           <input type="text"
@@ -65,7 +67,7 @@ class Searchbar extends Component {
             value={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}
           />
-          <button>Submit</button>
+          <button type="submit">Add video to my list</button>
         </form>
         {/* <ShowVideo
           videoId={this.state.videoId}

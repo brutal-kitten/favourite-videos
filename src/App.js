@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Searchbar from './components/Searchbar';
 import ListOfVideos from './components/ListOfVideos'
 import './App.css';
-import SearchResult from './components/SearchResult'
 
 
 
@@ -12,7 +11,7 @@ class App extends Component {
     listOfFav: [],
     showDefaultList: false,
     showFavoriteList: true,
-    showSearchResult: false,
+    searchResultError: false,
     currentSearchId: ''
   }
 
@@ -30,13 +29,10 @@ class App extends Component {
     let favoriteVideo = this.state.listOfFav.filter(item => (item.id !== videoID));
     localStorage.setItem('fav', JSON.stringify(favoriteVideo));
     this.setState({listOfFav: favoriteVideo});
-    if (this.state.currentSearchId === videoID) {
-      this.changeShowSearchResult(false);
-    }
   }
 
-  changeShowSearchResult = (changeTo) => {
-    this.setState({showSearchResult: changeTo});
+  changeSearchResultError = (changeTo) => {
+    this.setState({searchResultError: changeTo});
   }
 
   setCurrentSearchId = (id) => {
@@ -62,17 +58,13 @@ class App extends Component {
         <Searchbar
           addToFavorive={this.addToFavorive}
           deleteVideo={this.deleteVideo}
-          changeShowSearchResult={this.changeShowSearchResult}
           setCurrentSearchId={this.setCurrentSearchId}
+          addToFavorive={this.addToFavorive}
+          changeSearchResultError={this.changeSearchResultError}
         />
         <div className="search-video-result">
-          {this.state.showSearchResult === true && (
-            <SearchResult
-              key={this.state.currentSearchId}
-              id={this.state.currentSearchId}
-              addToFavorive={this.addToFavorive}
-              deleteVideo={this.deleteVideo}
-            />
+          {this.state.searchResultError === true && (
+          <p>There is no such video</p>
           )
           }
         </div>
@@ -82,6 +74,7 @@ class App extends Component {
           addToFavorive={this.addToFavorive}
           favoriteList={this.state.showFavoriteList}
           deleteVideo={this.deleteVideo}
+          changeSearchResultError={this.changeSearchResultError}
         />
       </div>
     );

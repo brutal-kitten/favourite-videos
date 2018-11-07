@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ShowVideo from './ShowVideo';
+
 
 
 class Searchbar extends Component {
@@ -22,6 +22,11 @@ class Searchbar extends Component {
     this.clearQuery();
     this.props.addToList(newId);
 
+  }
+
+  handleClick = (event) => {
+    event.preventDefault();
+    this.props.showDemo();
   }
 
   detectID = () => {
@@ -69,9 +74,7 @@ class Searchbar extends Component {
           />
           <button type="submit">Add video to my list</button>
         </form>
-        {/* <ShowVideo
-          videoId={this.state.videoId}
-        /> */}
+        <button type="button" onClick={(event) => this.handleClick(event)}>Show demolist</button>
       </div>
     )
   }

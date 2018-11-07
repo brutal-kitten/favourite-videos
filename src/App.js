@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Searchbar from './components/Searchbar';
 import ListOfVideos from './components/ListOfVideos'
+import videoOf10 from './Default10Videos';
+import NavButtons from './components/NavButtons';
 import './App.css';
 
 
@@ -9,10 +11,14 @@ class App extends Component {
 
   state = {
     listOfVideo: [],
+    listOfFav: [],
+    demolist: videoOf10,
     showDefaultList: false,
-    showFavoriteList: true,
+    showFavoriteList: false,
+    showList: true,
     searchResultError: false,
-    currentSearchId: ''
+    currentSearchId: '',
+
   }
 
   addToList = (videoID) => {
@@ -26,28 +32,25 @@ class App extends Component {
   }
 
   addToFavorive = (videoID) => {
-    let favoriteVideo = this.state.listOfVideo;
-    favoriteVideo.forEach(item => {
-      if (item.id === videoID) {
-        item.favorite = true;
-      };
-    });
-    console.log(favoriteVideo);
-    localStorage.setItem('list', JSON.stringify(favoriteVideo));
-      this.setState({listOfVideo: favoriteVideo});
-
-    //if (this.state.listOfFav.filter(item => (item.id === videoID)).length < 1) {
-    //  favoriteVideo.push({id: videoID});
-    //  console.log(favoriteVideo);
-    //  localStorage.setItem('list', JSON.stringify(favoriteVideo));
-    //  this.setState({listOfFav: favoriteVideo});
-  //  };
+    let list = this.state.listOfVideo.filter(item => (item.id !== videoID));
+    list.push({id: videoID, favorite: true});
+    localStorage.setItem('list', JSON.stringify(list));
+    this.setState({listOfVideo: list});
+    this.createArrayFav();
+    console.log(this.state.listOfFav);
   }
 
   deleteVideo = (videoID) => {
     let listOfVideos = this.state.listOfVideo.filter(item => (item.id !== videoID));
     localStorage.setItem('list', JSON.stringify(listOfVideos));
     this.setState({listOfVideo: listOfVideos});
+    this.createArrayFav();
+  }
+
+
+  createArrayFav = () => {
+    let arrayFav = this.state.listOfVideo.filter(item => (item.favorite === true));
+    this.setState({listOfFav: arrayFav});
   }
 
   changeSearchResultError = (changeTo) => {
@@ -56,6 +59,10 @@ class App extends Component {
 
   setCurrentSearchId = (id) => {
     this.setState({currentSearchId: id});
+  }
+
+  showDemo = () => {
+    this.setState({showDefaultList: true, showFavoriteList: false, showList: false});
   }
 
   componentDidMount(){
@@ -79,21 +86,41 @@ class App extends Component {
           deleteVideo={this.deleteVideo}
           setCurrentSearchId={this.setCurrentSearchId}
           changeSearchResultError={this.changeSearchResultError}
+          showDemo={this.showDemo}
+          showList={this.showList}
+          showFav={this.showFav}
         />
         <div className="search-video-result">
           {this.state.searchResultError === true && (
           <p>There is no such video</p>
-          )
-          }
+          )}
         </div>
-        <ListOfVideos
-          defaultList={this.state.showDefaultList}
-          listOfVideo={this.state.listOfVideo}
-          addToFavorive={this.addToFavorive}
-          favoriteList={this.state.showFavoriteList}
-          deleteVideo={this.deleteVideo}
-          changeSearchResultError={this.changeSearchResultError}
+        <NavButtons
+          showDemo={this.showDemo}
+          showList={this.showList}
+          showFav={this.showFav}
         />
+        {this.state.showList && (
+          <ListOfVideos
+            title={"My list"}
+            list={this.state.listOfVideo}
+            addToFavorive={this.addToFavorive}
+            deleteVideo={this.deleteVideo}
+            playVideo={this.props.playVideo}
+            changeSearchResultError={this.changeSearchResultError}
+          />
+        )}
+        {this.state.showDefaultList && (
+          <ListOfVideos
+            title={"Demolist"}
+            list={this.state.demolist}
+            addToFavorive={this.addToFavorive}
+            deleteVideo={this.deleteVideo}
+            playVideo={this.props.playVideo}
+            changeSearchResultError={this.changeSearchResultError}
+          />
+        )}
+
       </div>
     );
   }

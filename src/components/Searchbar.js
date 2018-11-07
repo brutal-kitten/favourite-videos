@@ -20,8 +20,8 @@ class Searchbar extends Component {
     this.setState({videoId: newId});
     this.props.setCurrentSearchId(newId);
     this.clearQuery();
-    this.props.addToFavorive(newId);
-  
+    this.props.addToList(newId);
+
   }
 
   detectID = () => {

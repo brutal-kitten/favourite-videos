@@ -26,6 +26,15 @@ class App extends Component {
   }
 
   addToFavorive = (videoID) => {
+    let favoriteVideo = this.state.listOfVideo;
+    favoriteVideo.forEach(item => {
+      if (item.id === videoID) {
+        item.favorite = true;
+      };
+    });
+    console.log(favoriteVideo);
+    localStorage.setItem('list', JSON.stringify(favoriteVideo));
+      this.setState({listOfVideo: favoriteVideo});
 
     //if (this.state.listOfFav.filter(item => (item.id === videoID)).length < 1) {
     //  favoriteVideo.push({id: videoID});

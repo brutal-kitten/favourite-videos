@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Searchbar from './components/Searchbar';
 import ListOfVideos from './components/ListOfVideos'
 import videoOf10 from './Default10Videos';
-import NavButtons from './components/NavButtons';
 import './App.css';
 
 
@@ -13,11 +12,9 @@ class App extends Component {
     listOfVideo: [],
     listOfFav: [],
     demolist: videoOf10,
-    showDefaultList: false,
-    showFavoriteList: false,
-    showList: true,
     searchResultError: false,
     currentSearchId: '',
+    showList: true
 
   }
 
@@ -55,6 +52,7 @@ class App extends Component {
 
   changeSearchResultError = (changeTo) => {
     this.setState({searchResultError: changeTo});
+    this.setState({showList: true});
   }
 
   setCurrentSearchId = (id) => {
@@ -62,16 +60,12 @@ class App extends Component {
   }
 
   showDemo = () => {
-    this.setState({showDefaultList: true, showFavoriteList: false, showList: false});
+    this.setState({listOfVideo: this.state.demolist});
   }
 
   deleteList = () => {
     localStorage.removeItem('list');
-    this.setState({listOfVideo : [] , showList: true, showDefaultList: false, showFavoriteList: false} );
-  }
-
-  showFavorite = () => {
-    console.log("Show fav");
+    this.setState({listOfVideo : []} );
   }
 
   sort = () => {
@@ -99,23 +93,17 @@ class App extends Component {
           deleteVideo={this.deleteVideo}
           setCurrentSearchId={this.setCurrentSearchId}
           changeSearchResultError={this.changeSearchResultError}
-          showDemo={this.showDemo}
-          showList={this.showList}
-          showFav={this.showFav}
         />
         <div className="search-video-result">
           {this.state.searchResultError === true && (
           <p>There is no such video</p>
           )}
         </div>
-        <NavButtons
-          showDemo={this.showDemo}
-          showFavorite={this.showFavorite}
-          deleteList={this.deleteList}
-          sort={this.sort}
-        />
         {this.state.showList && (
           <ListOfVideos
+            showDemo={this.showDemo}
+            deleteList={this.deleteList}
+            sort={this.sort}
             title={"My list"}
             list={this.state.listOfVideo}
             addToFavorive={this.addToFavorive}
@@ -124,17 +112,6 @@ class App extends Component {
             changeSearchResultError={this.changeSearchResultError}
           />
         )}
-        {this.state.showDefaultList && (
-          <ListOfVideos
-            title={"Demolist"}
-            list={this.state.demolist}
-            addToFavorive={this.addToFavorive}
-            deleteVideo={this.deleteVideo}
-            playVideo={this.props.playVideo}
-            changeSearchResultError={this.changeSearchResultError}
-          />
-        )}
-
       </div>
     );
   }

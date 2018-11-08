@@ -24,10 +24,6 @@ class Searchbar extends Component {
 
   }
 
-  handleClick = (event) => {
-    event.preventDefault();
-    this.props.showDemo();
-  }
 
   detectID = () => {
     let query = this.state.query;
@@ -74,7 +70,6 @@ class Searchbar extends Component {
           />
           <button type="submit">Add video to my list</button>
         </form>
-        <button type="button" onClick={(event) => this.handleClick(event)}>Show demolist</button>
       </div>
     )
   }

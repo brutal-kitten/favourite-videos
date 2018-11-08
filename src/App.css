@@ -29,6 +29,13 @@ input {
   margin: 5px 0 5px 0;
 }
 
+.grid-container2 {
+  display: inline-grid;
+  width: 90vw;
+  grid-template-columns: auto auto auto auto;
+  margin: 5px 0 5px 0;
+}
+
 .searchbar {
   margin: 2% 0 2% 0;
 }

@@ -65,6 +65,19 @@ class App extends Component {
     this.setState({showDefaultList: true, showFavoriteList: false, showList: false});
   }
 
+  deleteList = () => {
+    localStorage.removeItem('list');
+    this.setState({listOfVideo : [] , showList: true, showDefaultList: false, showFavoriteList: false} );
+  }
+
+  showFavorite = () => {
+    console.log("Show fav");
+  }
+
+  sort = () => {
+    console.log("Sort");
+  }
+
   componentDidMount(){
     const cachedList = localStorage.getItem('list');
     if (cachedList) {
@@ -97,8 +110,9 @@ class App extends Component {
         </div>
         <NavButtons
           showDemo={this.showDemo}
-          showList={this.showList}
-          showFav={this.showFav}
+          showFavorite={this.showFavorite}
+          deleteList={this.deleteList}
+          sort={this.sort}
         />
         {this.state.showList && (
           <ListOfVideos

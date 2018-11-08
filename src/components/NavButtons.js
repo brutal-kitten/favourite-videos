@@ -9,38 +9,19 @@ class NavButtons extends Component {
   render() {
 
     return (
-      <div className="navButtons" >
-      {(this.props.showFav === false) && (
-      <div className="grid-container2">
-        <ShowDemo
-          showDemo={this.props.showDemo}
-        />
+      <div className="navButtons grid-container2" >
+        <ShowDemo showDemo={this.props.showDemo} />
         <DeleteList
-          deleteList={this.props.deleteList}/>
-        <ShowFavorite
-          showFavorite={this.props.showFavorite}
-        />
-        <Sort
-          sort={this.props.sort}
-        />
-      </div>
+          deleteList={this.props.deleteList} />
+
+        {this.props.showFav ? (
+          <ReturnToList returnToList={this.props.returnToList} />
+        ) : (
+          <ShowFavorite showFavorite={this.props.showFavorite} />
         )}
-        {(this.props.showFav === true) && (
-        <div className="grid-container2">
-          <ShowDemo
-            showDemo={this.props.showDemo}
-          />
-          <DeleteList
-            deleteList={this.props.deleteList}/>
-          <ReturnToList
-            returnToList={this.props.returnToList}
-          />
-          <Sort
-            sort={this.props.sort}
-          />
-        </div>
-          )}
-    </div>
+
+        <Sort sort={this.props.sort} />
+     </div>
     )
   }
 }

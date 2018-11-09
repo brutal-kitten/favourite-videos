@@ -25,6 +25,7 @@ class VideoContainer extends Component {
     this.setState({showModal: false})
   }
 
+
   componentDidMount() {
     if(this.props.fetchAgain) {
       const url = `https://www.googleapis.com/youtube/v3/videos?id=${this.props.id}&key=AIzaSyB7asSzTvcMogycBslu8o4RB3DjOumaqtA&part=snippet,contentDetails,statistics,status`

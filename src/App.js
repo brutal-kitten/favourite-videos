@@ -21,43 +21,38 @@ class App extends Component {
   addToList = (videoID) => {
     let listOfVideos = this.state.listOfVideo;
     if (this.state.listOfVideo.filter(item => (item.id === videoID)).length < 1) {
-      listOfVideos.push({id: videoID, favorite: false});
+      listOfVideos.push({id: videoID });
       localStorage.setItem('list', JSON.stringify(listOfVideos));
       this.setState({listOfVideo: listOfVideos});
     };
   }
 
   addToFavorite = (videoID) => {
-    let list = this.state.listOfVideo.filter(item => (item.id !== videoID));
-    list.push({id: videoID, favorite: true});
-    localStorage.setItem('list', JSON.stringify(list));
-    console.log("just added to favorite");
-    this.setState({listOfVideo: list});
-    this.createArrayFav();
+    let list = this.state.listOfFav;
+    if(list.filter(item => (item.id === videoID)).length < 1) {
+      list.push({id: videoID});
+      localStorage.setItem('fav', JSON.stringify(list));
+      console.log("just added to favorite");
+      this.setState({listOfFav: list});
+    }
   }
 
+
   removeFromFavorite = (videoID) => {
-    let list = this.state.listOfVideo.filter(item => (item.id !== videoID));
-    list.push({id: videoID, favorite: false});
-    localStorage.setItem('list', JSON.stringify(list));
+    let list = this.state.listOfFav.filter(item => (item.id !== videoID));
+    localStorage.setItem('fav', JSON.stringify(list));
     console.log(" just remove  from favorite");
-    this.setState({listOfVideo: list});
-    this.createArrayFav();
+    this.setState({listOfFav: list});
+
   }
 
   deleteVideo = (videoID) => {
     let listOfVideos = this.state.listOfVideo.filter(item => (item.id !== videoID));
     localStorage.setItem('list', JSON.stringify(listOfVideos));
     this.setState({listOfVideo: listOfVideos});
-    this.createArrayFav();
+    this.removeFromFavorite();
   }
 
-
-  createArrayFav = () => {
-    let arrayFav = this.state.listOfVideo.filter(item => (item.favorite === true));
-    console.log("just created new array of fav");
-    this.setState({listOfFav: arrayFav});
-  }
 
   changeSearchResultError = (changeTo) => {
     this.setState({searchResultError: changeTo});
@@ -75,6 +70,8 @@ class App extends Component {
   deleteList = () => {
     localStorage.removeItem('list');
     this.setState({listOfVideo : []} );
+    localStorage.removeItem('fav');
+    this.setState({listOfFav : []} );
   }
 
   sort = () => {
@@ -83,8 +80,12 @@ class App extends Component {
 
   componentDidMount(){
     const cachedList = localStorage.getItem('list');
+    const cachedFav = localStorage.getItem('fav');
     if (cachedList) {
       this.setState({listOfVideo: JSON.parse(cachedList)});
+    };
+    if (cachedFav) {
+      this.setState({listOfFav: JSON.parse(cachedFav)});
     };
   };
 

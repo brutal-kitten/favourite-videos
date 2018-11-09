@@ -22,6 +22,15 @@ class ListOfVideos extends Component {
     this.props.showDemo();
   }
 
+  isFavriteCheck = (id) => {
+    console.log(id);
+    let array = this.props.listOfFav.filter((item) => (item.id === id));
+    console.log(array);
+    if (array.length > 0) {
+      return true;
+    } else return false;
+  }
+
 
 
   render() {
@@ -42,7 +51,7 @@ class ListOfVideos extends Component {
         <VideoContainer
           key={item.id}
           id={item.id}
-          isfavorite={item.favorite}
+          isfavorite={this.isFavriteCheck(item.id)}
           removeFromFavorite={this.props.removeFromFavorite}
           fetchAgain={true}
           addToFavorite={this.props.addToFavorite}
@@ -52,18 +61,17 @@ class ListOfVideos extends Component {
         />
       )))}
         {(this.state.showFavorite === true) && (this.props.listOfFav.map((item) => (
-        <VideoContainer
-          key={item.id}
-          id={item.id}
-          isfavorite={true}
-          removeFromFavorite={this.props.removeFromFavorite}
-          fetchAgain={true}
-          deleteVideo={this.props.deleteVideo}
-          playVideo={this.props.playVideo}
-          changeSearchResultError={this.props.changeSearchResultError}
-        />
-      )))}
-
+          <VideoContainer
+            key={item.id}
+            id={item.id}
+            isfavorite={this.isFavriteCheck(item.id)}
+            removeFromFavorite={this.props.removeFromFavorite}
+            fetchAgain={true}
+            deleteVideo={this.props.deleteVideo}
+            playVideo={this.props.playVideo}
+            changeSearchResultError={this.props.changeSearchResultError}
+          />
+        )))}
       </div>
     )
   }

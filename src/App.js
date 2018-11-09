@@ -75,8 +75,31 @@ class App extends Component {
     this.setState({listOfFav : []} );
   }
 
-  sort = () => {
-    console.log("Sort");
+  sort = (value) => {
+    console.log(value);
+    let list = this.state.listOfVideo;
+    let listOfFav = this.state.listOfFav;
+    if (value === 'new') {
+      list.sort((first, second) => this.sortByNewest(first, second));
+      listOfFav.sort((first, second) => this.sortByNewest(first, second));
+      this.setState({listOfVideo: list, listOfFav: listOfFav});
+    } else if (value === 'old') {
+      list.sort((first, second) => this.sortByOldest(first, second));
+      listOfFav.sort((first, second) => this.sortByOldest(first, second));
+      this.setState({listOfVideo: list, listOfFav: listOfFav});
+    };
+  }
+
+  sortByNewest = (first, second) => {
+    let a = Date.parse(first.date);
+    let b = Date.parse(second.date);
+    return (a > b) ?  -1 : 1;
+  }
+
+  sortByOldest = (first, second) => {
+    let a = Date.parse(first.date);
+    let b = Date.parse(second.date);
+    return (a < b) ?  -1 : 1;
   }
 
   componentDidMount(){

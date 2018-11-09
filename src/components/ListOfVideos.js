@@ -23,6 +23,7 @@ class ListOfVideos extends Component {
   }
 
 
+
   render() {
 
 
@@ -41,19 +42,22 @@ class ListOfVideos extends Component {
         <VideoContainer
           key={item.id}
           id={item.id}
+          isfavorite={item.favorite}
+          removeFromFavorite={this.props.removeFromFavorite}
           fetchAgain={true}
-          addToFavorive={this.props.addToFavorive}
+          addToFavorite={this.props.addToFavorite}
           deleteVideo={this.props.deleteVideo}
           playVideo={this.props.playVideo}
           changeSearchResultError={this.props.changeSearchResultError}
         />
       )))}
-        {(this.state.showFavorite === true) && (this.props.list.filter((item) => (item.favorite === true)).map((item) => (
+        {(this.state.showFavorite === true) && (this.props.listOfFav.map((item) => (
         <VideoContainer
           key={item.id}
           id={item.id}
+          isfavorite={true}
+          removeFromFavorite={this.props.removeFromFavorite}
           fetchAgain={true}
-          addToFavorive={this.props.addToFavorive}
           deleteVideo={this.props.deleteVideo}
           playVideo={this.props.playVideo}
           changeSearchResultError={this.props.changeSearchResultError}

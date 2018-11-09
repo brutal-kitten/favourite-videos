@@ -69,9 +69,11 @@ class VideoContainer extends Component {
           />
           <ButtonsPanel
             id={this.props.id}
-            addToFavorive={this.props.addToFavorive}
+            isfavorite={this.props.isfavorite}
+            addToFavorite={this.props.addToFavorite}
             deleteVideo={this.props.deleteVideo}
             playVideo={this.playVideo}
+            removeFromFavorite={this.props.removeFromFavorite}
           />
           <Infobox
             title={this.state.title}

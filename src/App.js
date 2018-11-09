@@ -22,19 +22,27 @@ class App extends Component {
     let listOfVideos = this.state.listOfVideo;
     if (this.state.listOfVideo.filter(item => (item.id === videoID)).length < 1) {
       listOfVideos.push({id: videoID, favorite: false});
-      console.log(listOfVideos);
       localStorage.setItem('list', JSON.stringify(listOfVideos));
       this.setState({listOfVideo: listOfVideos});
     };
   }
 
-  addToFavorive = (videoID) => {
+  addToFavorite = (videoID) => {
     let list = this.state.listOfVideo.filter(item => (item.id !== videoID));
     list.push({id: videoID, favorite: true});
     localStorage.setItem('list', JSON.stringify(list));
+    console.log("just added to favorite");
     this.setState({listOfVideo: list});
     this.createArrayFav();
-    console.log(this.state.listOfFav);
+  }
+
+  removeFromFavorite = (videoID) => {
+    let list = this.state.listOfVideo.filter(item => (item.id !== videoID));
+    list.push({id: videoID, favorite: false});
+    localStorage.setItem('list', JSON.stringify(list));
+    console.log(" just remove  from favorite");
+    this.setState({listOfVideo: list});
+    this.createArrayFav();
   }
 
   deleteVideo = (videoID) => {
@@ -47,6 +55,7 @@ class App extends Component {
 
   createArrayFav = () => {
     let arrayFav = this.state.listOfVideo.filter(item => (item.favorite === true));
+    console.log("just created new array of fav");
     this.setState({listOfFav: arrayFav});
   }
 
@@ -106,7 +115,9 @@ class App extends Component {
             sort={this.sort}
             title={"My list"}
             list={this.state.listOfVideo}
-            addToFavorive={this.addToFavorive}
+            listOfFav={this.state.listOfFav}
+            addToFavorite={this.addToFavorite}
+            removeFromFavorite={this.removeFromFavorite}
             deleteVideo={this.deleteVideo}
             playVideo={this.props.playVideo}
             changeSearchResultError={this.changeSearchResultError}

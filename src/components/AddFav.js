@@ -4,7 +4,9 @@ class AddFav extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    this.props.addToFavorive(this.props.id);
+    this.props.addToFavorite(this.props.id);
+    this.props.trigger();
+
   }
 
   render() {

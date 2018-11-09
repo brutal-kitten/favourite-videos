@@ -18,10 +18,10 @@ class App extends Component {
 
   }
 
-  addToList = (videoID) => {
+  addToList = (videoObject) => {
     let listOfVideos = this.state.listOfVideo;
-    if (this.state.listOfVideo.filter(item => (item.id === videoID)).length < 1) {
-      listOfVideos.push({id: videoID });
+    if (this.state.listOfVideo.filter(item => (item.id === videoObject.id)).length < 1) {
+      listOfVideos.push(videoObject);
       localStorage.setItem('list', JSON.stringify(listOfVideos));
       this.setState({listOfVideo: listOfVideos});
     };
@@ -30,7 +30,8 @@ class App extends Component {
   addToFavorite = (videoID) => {
     let list = this.state.listOfFav;
     if(list.filter(item => (item.id === videoID)).length < 1) {
-      list.push({id: videoID});
+      let videoObj = this.state.listOfVideo.filter(item => (item.id === videoID));
+      list.push(videoObj[0]);
       localStorage.setItem('fav', JSON.stringify(list));
       console.log("just added to favorite");
       this.setState({listOfFav: list});
@@ -50,7 +51,7 @@ class App extends Component {
     let listOfVideos = this.state.listOfVideo.filter(item => (item.id !== videoID));
     localStorage.setItem('list', JSON.stringify(listOfVideos));
     this.setState({listOfVideo: listOfVideos});
-    this.removeFromFavorite();
+    this.removeFromFavorite(videoID);
   }
 
 

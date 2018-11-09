@@ -8,11 +8,6 @@ import Modal from './Modal'
 class VideoContainer extends Component {
 
   state = {
-    title: '',
-    date: '',
-    likes: '',
-    views: '',
-    thumbnails: '',
     error: false,
     showModal: false
   }
@@ -23,33 +18,6 @@ class VideoContainer extends Component {
 
   closeModal = () => {
     this.setState({showModal: false})
-  }
-
-
-  componentDidMount() {
-    if(this.props.fetchAgain) {
-      const url = `https://www.googleapis.com/youtube/v3/videos?id=${this.props.id}&key=AIzaSyB7asSzTvcMogycBslu8o4RB3DjOumaqtA&part=snippet,contentDetails,statistics,status`
-      fetch(url)
-        .then((response) => response.json())
-        .then((result) => {
-          console.log(result.items[0]);
-          if(result.items[0]) {
-            this.setState({
-              fetchAgain: false,
-              title: result.items[0].snippet.title,
-              date: result.items[0].snippet.publishedAt,
-              views: result.items[0].statistics.viewCount,
-              likes: result.items[0].statistics.likeCount,
-              thumbnails: result.items[0].snippet.thumbnails.default.url
-            });
-          } else {
-            this.props.changeSearchResultError(true);
-            this.props.deleteVideo(this.props.id);
-
-          }
-
-        })
-      }
   }
 
   render() {
@@ -64,7 +32,7 @@ class VideoContainer extends Component {
             </div>
           )}
           <Picture
-            thumbnails={this.state.thumbnails}
+            thumbnails={this.props.thumbnails}
             playVideo={this.playVideo}
             id={this.props.id}
           />
@@ -77,10 +45,10 @@ class VideoContainer extends Component {
             removeFromFavorite={this.props.removeFromFavorite}
           />
           <Infobox
-            title={this.state.title}
-            date={this.state.date}
-            views={this.state.views}
-            likes={this.state.likes}
+            title={this.props.title}
+            date={this.props.date}
+            views={this.props.views}
+            likes={this.props.likes}
           />
           <Modal
             videoId={this.props.id}

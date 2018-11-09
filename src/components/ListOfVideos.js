@@ -51,6 +51,11 @@ class ListOfVideos extends Component {
         <VideoContainer
           key={item.id}
           id={item.id}
+          title={item.title}
+          date={item.date}
+          views={item.views}
+          likes={item.likes}
+          thumbnails={item.thumbnails}
           isfavorite={this.isFavriteCheck(item.id)}
           removeFromFavorite={this.props.removeFromFavorite}
           fetchAgain={true}
@@ -64,6 +69,11 @@ class ListOfVideos extends Component {
           <VideoContainer
             key={item.id}
             id={item.id}
+            title={item.title}
+            date={item.date}
+            views={item.views}
+            likes={item.likes}
+            thumbnails={item.thumbnails}
             isfavorite={this.isFavriteCheck(item.id)}
             removeFromFavorite={this.props.removeFromFavorite}
             fetchAgain={true}

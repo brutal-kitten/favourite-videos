@@ -12,16 +12,17 @@ class App extends Component {
     listOfVideo: [],
     demolist: videoOf10,
     searchResultError: false,
+    sortBy : "new"
 
   }
 
   addToList = (videoObject) => {
 
-    let listOfVideos = this.state.listOfVideo;
+    let list = this.state.listOfVideo;
     if (this.state.listOfVideo.filter(item => (item.id === videoObject.id)).length < 1) {
-      listOfVideos.push(videoObject);
-      localStorage.setItem('list', JSON.stringify(listOfVideos));
-      this.setState({listOfVideo: listOfVideos});
+      list.push(videoObject);
+
+      this.setList(list);
       console.log("new list of video");
     };
   }
@@ -38,9 +39,8 @@ class App extends Component {
      }
    });
 
-    localStorage.setItem('list', JSON.stringify(list));
+    this.setList(list);
     console.log("just added to favorite");
-    this.setState({listOfVideo: list});
   }
 
 
@@ -55,17 +55,15 @@ class App extends Component {
      }
    });
 
-    localStorage.setItem('list', JSON.stringify(list));
+    this.setList(list);
     console.log(" just remove  from favorite");
-    this.setState({listOfVideo: list});
   }
 
 
   deleteVideo = (videoID) => {
 
     let list = this.state.listOfVideo.filter(item => (item.id !== videoID));
-    localStorage.setItem('list', JSON.stringify(list));
-    this.setState({listOfVideo: list});
+    this.setList(list);
   }
 
 
@@ -74,49 +72,68 @@ class App extends Component {
     this.setState({searchResultError: changeTo});
   }
 
+
   showDemo = () => {
 
-    this.setState({listOfVideo: this.state.demolist});
+    let list = this.sortArray(this.state.demolist);
+    this.setState({listOfVideo: list});
   }
+
 
   deleteList = () => {
 
     localStorage.removeItem('list');
     this.setState({listOfVideo : []} );
-  
+
   }
 
   sort = (value) => {
-    console.log(value);
-    let list = this.state.listOfVideo;
-    let listOfFav = this.state.listOfFav;
-    if (value === 'new') {
+
+    this.setState({sortBy: value});
+    this.sortArray();
+  }
+
+  sortArray = (list) => {
+
+
+    if (this.state.sortBy === 'new') {
       list.sort((first, second) => this.sortByNewest(first, second));
-      listOfFav.sort((first, second) => this.sortByNewest(first, second));
-      this.setState({listOfVideo: list, listOfFav: listOfFav});
-    } else if (value === 'old') {
+    } else if (this.state.sortBy === 'old') {
       list.sort((first, second) => this.sortByOldest(first, second));
-      listOfFav.sort((first, second) => this.sortByOldest(first, second));
-      this.setState({listOfVideo: list, listOfFav: listOfFav});
     };
+    return list;
   }
 
   sortByNewest = (first, second) => {
+
     let a = Date.parse(first.date);
     let b = Date.parse(second.date);
     return (a > b) ?  -1 : 1;
   }
 
+
   sortByOldest = (first, second) => {
+
     let a = Date.parse(first.date);
     let b = Date.parse(second.date);
     return (a < b) ?  -1 : 1;
   }
 
+
+  setList = (array) => {
+
+    let list = this.sortArray(array);
+    localStorage.setItem('list', JSON.stringify(list));
+    this.setState({listOfVideo: list});
+  }
+
+
   componentDidMount() {
+
     const cachedList = localStorage.getItem('list');
     if (cachedList) {
-      this.setState({listOfVideo: JSON.parse(cachedList)});
+      let list = this.sortArray(JSON.parse(cachedList));
+      this.setState({listOfVideo: list});
     };
   };
 
@@ -124,6 +141,7 @@ class App extends Component {
 
 
   render() {
+
     return (
       <div className="App">
         <header className="App-header">

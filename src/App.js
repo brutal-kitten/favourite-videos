@@ -62,9 +62,9 @@ class App extends Component {
 
   deleteVideo = (videoID) => {
 
-    let listOfVideos = this.state.listOfVideo.filter(item => (item.id !== videoID));
-    localStorage.setItem('list', JSON.stringify(listOfVideos));
-    this.setState({listOfVideo: listOfVideos});
+    let list = this.state.listOfVideo.filter(item => (item.id !== videoID));
+    localStorage.setItem('list', JSON.stringify(list));
+    this.setState({listOfVideo: list});
   }
 
 

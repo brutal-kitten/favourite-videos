@@ -75,7 +75,7 @@ class App extends Component {
 
   showDemo = () => {
 
-    let list = this.sortArray(this.state.demolist);
+    let list = this.sortArray(this.state.demolist, this.state.sortBy);
     this.setState({listOfVideo: list});
   }
 
@@ -88,20 +88,25 @@ class App extends Component {
   }
 
   sort = (value) => {
-
+    console.log(value);
+    this.setList(this.state.listOfVideo, value);
     this.setState({sortBy: value});
-    this.sortArray();
   }
 
-  sortArray = (list) => {
+  sortArray = (list, sortBy) => {
 
-
-    if (this.state.sortBy === 'new') {
-      list.sort((first, second) => this.sortByNewest(first, second));
-    } else if (this.state.sortBy === 'old') {
-      list.sort((first, second) => this.sortByOldest(first, second));
-    };
-    return list;
+    console.log("inSort");
+    console.log(this.state.sortBy);
+    console.log(sortBy);
+    if (sortBy === "new") {
+      let sortedlist = list.sort((first, second) => this.sortByNewest(first, second));
+      console.log(sortedlist);
+      return sortedlist;
+    } else {
+      let sortedlist = list.sort((first, second) => this.sortByOldest(first, second));
+      console.log(sortedlist);
+      return sortedlist;
+    }
   }
 
   sortByNewest = (first, second) => {
@@ -116,14 +121,15 @@ class App extends Component {
 
     let a = Date.parse(first.date);
     let b = Date.parse(second.date);
-    return (a < b) ?  -1 : 1;
+    return (a > b) ?  1 : -1;
   }
 
 
-  setList = (array) => {
+  setList = (array, sortBy=this.state.sortBy) => {
 
-    let list = this.sortArray(array);
+    let list = this.sortArray(array, sortBy);
     localStorage.setItem('list', JSON.stringify(list));
+    console.log(list);
     this.setState({listOfVideo: list});
   }
 

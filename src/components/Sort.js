@@ -7,11 +7,16 @@ class Sort extends Component {
   }
 
   handleChange = (event) => {
+
     event.preventDefault();
-    this.setState({value: event.target.value});
+    console.log(event.target.value);
     this.props.sort(event.target.value);
+    this.setState({value: event.target.value});
   }
+
+
   render() {
+
     return(
       <div className="sort" >
         <span className="sortText">Sort by</span>

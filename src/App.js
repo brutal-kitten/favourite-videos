@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Searchbar from './components/Searchbar';
-import ListOfVideos from './components/ListOfVideos'
+import Pagination from './components/Pagination'
 import videoOf10 from './Default10Videos';
 import './App.css';
 
@@ -10,11 +10,9 @@ class App extends Component {
 
   state = {
     listOfVideo: [],
-    listOfFav: [],
+    //listOfFav: [],
     demolist: videoOf10,
     searchResultError: false,
-    currentSearchId: '',
-    showList: true
 
   }
 
@@ -24,18 +22,25 @@ class App extends Component {
       listOfVideos.push(videoObject);
       localStorage.setItem('list', JSON.stringify(listOfVideos));
       this.setState({listOfVideo: listOfVideos});
+      console.log("new list of video:");
     };
   }
 
   addToFavorite = (videoID) => {
-    let list = this.state.listOfFav;
-    if(list.filter(item => (item.id === videoID)).length < 1) {
-      let videoObj = this.state.listOfVideo.filter(item => (item.id === videoID));
-      list.push(videoObj[0]);
-      localStorage.setItem('fav', JSON.stringify(list));
-      console.log("just added to favorite");
-      this.setState({listOfFav: list});
-    }
+
+    let list = this.state.listOfVideo.map(function (item) {
+      if (item.id === videoID) {
+        item.favorite = true;
+        return item;
+      } else {
+      return item;
+     }
+   });
+
+    localStorage.setItem('list', JSON.stringify(list));
+    console.log("just added to favorite");
+    this.setState({listOfVideo: list});
+
   }
 
 
@@ -58,10 +63,6 @@ class App extends Component {
   changeSearchResultError = (changeTo) => {
     this.setState({searchResultError: changeTo});
     this.setState({showList: true});
-  }
-
-  setCurrentSearchId = (id) => {
-    this.setState({currentSearchId: id});
   }
 
   showDemo = () => {
@@ -102,14 +103,10 @@ class App extends Component {
     return (a < b) ?  -1 : 1;
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const cachedList = localStorage.getItem('list');
-    const cachedFav = localStorage.getItem('fav');
     if (cachedList) {
       this.setState({listOfVideo: JSON.parse(cachedList)});
-    };
-    if (cachedFav) {
-      this.setState({listOfFav: JSON.parse(cachedFav)});
     };
   };
 
@@ -124,8 +121,6 @@ class App extends Component {
         </header>
         <Searchbar
           addToList={this.addToList}
-          deleteVideo={this.deleteVideo}
-          setCurrentSearchId={this.setCurrentSearchId}
           changeSearchResultError={this.changeSearchResultError}
         />
         <div className="search-video-result">
@@ -133,13 +128,11 @@ class App extends Component {
           <p>There is no such video</p>
           )}
         </div>
-        {this.state.showList && (
-          <ListOfVideos
+          <Pagination
             showDemo={this.showDemo}
             deleteList={this.deleteList}
             sort={this.sort}
-            title={"My list"}
-            list={this.state.listOfVideo}
+            listOfVideo={this.state.listOfVideo}
             listOfFav={this.state.listOfFav}
             addToFavorite={this.addToFavorite}
             removeFromFavorite={this.removeFromFavorite}
@@ -147,9 +140,8 @@ class App extends Component {
             playVideo={this.props.playVideo}
             changeSearchResultError={this.changeSearchResultError}
           />
-        )}
       </div>
-    );
+    )
   }
 }
 

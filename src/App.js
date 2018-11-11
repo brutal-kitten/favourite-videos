@@ -60,6 +60,7 @@ class App extends Component {
     this.setState({listOfVideo: list});
   }
 
+
   deleteVideo = (videoID) => {
 
     let list = this.state.listOfVideo.filter(item => (item.id !== videoID));
@@ -69,19 +70,20 @@ class App extends Component {
 
 
   changeSearchResultError = (changeTo) => {
+
     this.setState({searchResultError: changeTo});
-    this.setState({showList: true});
   }
 
   showDemo = () => {
+
     this.setState({listOfVideo: this.state.demolist});
   }
 
   deleteList = () => {
+
     localStorage.removeItem('list');
     this.setState({listOfVideo : []} );
-    localStorage.removeItem('fav');
-    this.setState({listOfFav : []} );
+  
   }
 
   sort = (value) => {

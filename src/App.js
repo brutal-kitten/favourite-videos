@@ -161,7 +161,6 @@ class App extends Component {
             deleteList={this.deleteList}
             sort={this.sort}
             listOfVideo={this.state.listOfVideo}
-            listOfFav={this.state.listOfFav}
             addToFavorite={this.addToFavorite}
             removeFromFavorite={this.removeFromFavorite}
             deleteVideo={this.deleteVideo}

@@ -11,17 +11,16 @@ class Searchbar extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.clearID();
     this.detectID();
+    this.clearID();
     this.props.changeSearchResultError(false);
   }
 
   setId = (newId) => {
     this.setState({videoId: newId});
-    this.props.setCurrentSearchId(newId);
     this.clearQuery();
     this.getInfo(newId);
-  //  this.props.addToList(newId);
+
 
   }
 
@@ -32,10 +31,9 @@ class Searchbar extends Component {
       .then((result) => {
         console.log(result.items[0]);
         if(result.items[0]) {
-          this.props.addToList({id: result.items[0].id, date: `${new Date(result.items[0].snippet.publishedAt).toDateString()}`, title: result.items[0].snippet.title, views: result.items[0].statistics.viewCount, likes: result.items[0].statistics.likeCount, thumbnails: result.items[0].snippet.thumbnails.default.url });
+          this.props.addToList({id: result.items[0].id, favorite: false, date: `${new Date(result.items[0].snippet.publishedAt).toDateString()}`, title: result.items[0].snippet.title, views: result.items[0].statistics.viewCount, likes: result.items[0].statistics.likeCount, thumbnails: result.items[0].snippet.thumbnails.default.url });
         } else {
           this.props.changeSearchResultError(true);
-          this.props.deleteVideo(this.props.id);
 
         }
 
@@ -70,7 +68,6 @@ class Searchbar extends Component {
 
   clearID = () => {
     this.setState({videoId: ''});
-    this.props.setCurrentSearchId('');
   }
 
   render () {

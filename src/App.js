@@ -58,14 +58,13 @@ class App extends Component {
     localStorage.setItem('list', JSON.stringify(list));
     console.log(" just remove  from favorite");
     this.setState({listOfVideo: list});
-
   }
 
   deleteVideo = (videoID) => {
+
     let listOfVideos = this.state.listOfVideo.filter(item => (item.id !== videoID));
     localStorage.setItem('list', JSON.stringify(listOfVideos));
     this.setState({listOfVideo: listOfVideos});
-    this.removeFromFavorite(videoID);
   }
 
 

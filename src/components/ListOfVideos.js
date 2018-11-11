@@ -6,8 +6,10 @@ import NavButtons from './NavButtons';
 class ListOfVideos extends Component {
 
 
+
   render() {
-    return(
+
+    return (
       <div className="list">
         <h3>My list</h3>
         <NavButtons
@@ -18,7 +20,7 @@ class ListOfVideos extends Component {
           showFav={this.props.showFav}
           returnToList={this.props.returnToList}
         />
-        {this.props.list.map((item) => (
+        {(this.props.showFav ? (this.props.list.filter(item => (item.favorite === true))) : this.props.list).map((item) => (
         <VideoContainer
           key={item.id}
           id={item.id}

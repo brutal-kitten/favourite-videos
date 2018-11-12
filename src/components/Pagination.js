@@ -6,13 +6,12 @@ class Pagination extends Component {
 
 
   state = {
-    showFav: false,
-    list: this.props.listOfVideo
+    showFav: false
   }
 
 
   showFavorite = () => {
-    
+
     this.setState({showFav: true});
   }
 
@@ -28,9 +27,6 @@ class Pagination extends Component {
     this.props.showDemo();
     this.setState({showFav: false});
   }
-
-
-
 
 
   render () {

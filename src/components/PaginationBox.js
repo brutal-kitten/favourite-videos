@@ -7,7 +7,7 @@ class PaginationBox extends Component {
 
     return (
       <div className="paginationBox">
-        <ElementsPerPagePicker />
+        <ElementsPerPagePicker setIndexes={this.props.setIndexes} />
       </div>
     )
   }

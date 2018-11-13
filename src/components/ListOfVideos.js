@@ -20,7 +20,7 @@ class ListOfVideos extends Component {
           showFav={this.props.showFav}
           returnToList={this.props.returnToList}
         />
-        {(this.props.showFav ? (this.props.list.filter(item => (item.favorite === true))) : this.props.list).map((item) => (
+        {(this.props.list.map((item) => (
         <VideoContainer
           key={item.id}
           id={item.id}
@@ -36,7 +36,7 @@ class ListOfVideos extends Component {
           playVideo={this.props.playVideo}
           changeSearchResultError={this.props.changeSearchResultError}
         />
-      ))}
+      )))}
       </div>
     )
   }

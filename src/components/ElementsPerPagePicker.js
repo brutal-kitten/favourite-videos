@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 class ElementsPerPagePicker extends Component {
 
   state = {
-    value: '10'
+    value: 10
   }
 
   handleChange = (event) => {
 
     event.preventDefault();
     console.log(event.target.value);
-
     this.setState({value: event.target.value});
+    this.props.setIndexes(event.target.value);
   }
 
   render() {

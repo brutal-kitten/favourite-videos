@@ -6,7 +6,9 @@ class Pagination extends Component {
 
 
   state = {
-    showFav: false
+    showFav: false,
+    startIndex: 0,
+    number: 10
   }
 
 
@@ -28,12 +30,28 @@ class Pagination extends Component {
     this.setState({showFav: false});
   }
 
+  setIndexes = (number) => {
+
+    this.setState({number: number, startIndex: 0});
+  }
+
+  createList = (list) => {
+
+    let filteredList = (this.state.showFav ? (list.filter(item => (item.favorite === true))) : list);
+    let start = parseInt(this.state.startIndex, 10);
+    let finish =  start + parseInt(this.state.number, 10);
+    let slicedList = filteredList.slice(start, finish);
+    return slicedList;
+  }
+
 
   render () {
 
     return (
       <div className="page">
-      <PaginationBox />
+      <PaginationBox
+        setIndexes={this.setIndexes}
+      />
       <ListOfVideos
         showDemo={this.beforeShowDemo}
         deleteList={this.props.deleteList}
@@ -41,12 +59,13 @@ class Pagination extends Component {
         showFav={this.state.showFav}
         returnToList={this.returnToList}
         sort={this.props.sort}
-        list={this.props.listOfVideo}
+        list={this.createList(this.props.listOfVideo)}
         addToFavorite={this.props.addToFavorite}
         removeFromFavorite={this.props.removeFromFavorite}
         deleteVideo={this.props.deleteVideo}
         playVideo={this.props.playVideo}
         changeSearchResultError={this.props.changeSearchResultError}
+        number={this.state.number}
       />
       </div>
     )

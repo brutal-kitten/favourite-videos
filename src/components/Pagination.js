@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ListOfVideos from './ListOfVideos'
-
+import PaginationBox from './PaginationBox'
 
 class Pagination extends Component {
 

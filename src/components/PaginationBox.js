@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ElementsPerPagePicker from './ElementsPerPagePicker';
+import PageInformation from './PageInformation';
 
 class PaginationBox extends Component {
 
@@ -8,6 +9,7 @@ class PaginationBox extends Component {
     return (
       <div className="paginationBox">
         <ElementsPerPagePicker setIndexes={this.props.setIndexes} />
+        <PageInformation />
       </div>
     )
   }

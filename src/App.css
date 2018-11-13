@@ -58,6 +58,21 @@ input {
 }
 
 .paginationBox {
-  text-align: right;
   margin: 10px;
+  display: inline-grid;
+  grid-template-columns: auto 15%;
+  width: 90vw;
+  text-align: right;
+}
+
+.pageInput,
+.totalPage,
+.totalPageNumber {
+  width: 100%;
+  text-align: center;
+}
+
+.pageInfo {
+  display: inline-grid;
+  grid-template-columns: 25px 25px 25px;
 }

@@ -33,6 +33,7 @@ class Pagination extends Component {
 
     return (
       <div className="page">
+      <PaginationBox />
       <ListOfVideos
         showDemo={this.beforeShowDemo}
         deleteList={this.props.deleteList}
@@ -47,7 +48,6 @@ class Pagination extends Component {
         playVideo={this.props.playVideo}
         changeSearchResultError={this.props.changeSearchResultError}
       />
-
       </div>
     )
   }

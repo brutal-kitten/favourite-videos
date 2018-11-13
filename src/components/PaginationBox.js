@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ElementsPerPagePicker from './ElementsPerPagePicker';
 
 class PaginationBox extends Component {
 
@@ -6,7 +7,7 @@ class PaginationBox extends Component {
 
     return (
       <div className="paginationBox">
-        
+        <ElementsPerPagePicker />
       </div>
     )
   }

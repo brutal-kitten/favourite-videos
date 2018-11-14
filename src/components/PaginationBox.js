@@ -9,7 +9,10 @@ class PaginationBox extends Component {
     return (
       <div className="paginationBox">
         <ElementsPerPagePicker setIndexes={this.props.setIndexes} />
-        <PageInformation totalPages={this.props.totalPages} />
+        <PageInformation
+          totalPages={this.props.totalPages}
+          setStartIndex={this.props.setStartIndex}
+        />
       </div>
     )
   }

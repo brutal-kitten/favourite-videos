@@ -60,19 +60,20 @@ input {
 .paginationBox {
   margin: 10px;
   display: inline-grid;
-  grid-template-columns: auto 15%;
+  grid-template-columns: auto 20%;
   width: 90vw;
   text-align: right;
 }
 
 .pageInput,
 .totalPage,
-.totalPageNumber {
+.totalPageNumber,
+.pageText {
   width: 100%;
   text-align: center;
 }
 
 .pageInfo {
   display: inline-grid;
-  grid-template-columns: 25px 25px 25px;
+  grid-template-columns: 50px 35px 25px 25px;
 }

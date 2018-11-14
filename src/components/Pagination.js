@@ -39,6 +39,16 @@ class Pagination extends Component {
   }
 
 
+  setStartIndex = (currentPage) => {
+    if (currentPage === 1 || currentPage === 0) {
+      this.setState({startIndex : 0});
+    } else {
+      let index = parseInt(this.state.number)*(currentPage - 1);
+        this.setState({startIndex : index});
+    }
+  }
+
+
   calculateTotalPagesNumber = (length, number) => {
 
     return (length % number === 0) ? (length / number) : (parseInt(length / number) + 1);
@@ -51,7 +61,6 @@ class Pagination extends Component {
     let start = parseInt(this.state.startIndex, 10);
     let number = parseInt(this.state.number, 10);
     let finish =  start + number;
-    let length = filteredList.length;
     let slicedList = filteredList.slice(start, finish);
     return slicedList;
   }
@@ -71,6 +80,7 @@ class Pagination extends Component {
       <PaginationBox
         setIndexes={this.setIndexes}
         totalPages={this.state.totalPages}
+        setStartIndex={this.setStartIndex}
       />
       <ListOfVideos
         showDemo={this.beforeShowDemo}

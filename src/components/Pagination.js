@@ -8,7 +8,8 @@ class Pagination extends Component {
   state = {
     showFav: false,
     startIndex: 0,
-    number: 10
+    number: 10,
+    totalPages: 1
   }
 
 
@@ -32,16 +33,34 @@ class Pagination extends Component {
 
   setIndexes = (number) => {
 
-    this.setState({number: number, startIndex: 0});
+    let length = this.filterList(this.props.listOfVideo).length;
+    let totalPagesNumber = this.calculateTotalPagesNumber(length, number);
+    this.setState({number: number, startIndex: 0, totalPages: totalPagesNumber});
   }
+
+
+  calculateTotalPagesNumber = (length, number) => {
+
+    return (length % number === 0) ? (length / number) : (parseInt(length / number) + 1);
+  }
+
 
   createList = (list) => {
 
-    let filteredList = (this.state.showFav ? (list.filter(item => (item.favorite === true))) : list);
+    let filteredList = this.filterList(list);
     let start = parseInt(this.state.startIndex, 10);
-    let finish =  start + parseInt(this.state.number, 10);
+    let number = parseInt(this.state.number, 10);
+    let finish =  start + number;
+    let length = filteredList.length;
     let slicedList = filteredList.slice(start, finish);
     return slicedList;
+  }
+
+
+  filterList = (list) => {
+
+    let filteredList = (this.state.showFav ? (list.filter(item => (item.favorite === true))) : list);
+    return filteredList;
   }
 
 
@@ -51,6 +70,7 @@ class Pagination extends Component {
       <div className="page">
       <PaginationBox
         setIndexes={this.setIndexes}
+        totalPages={this.state.totalPages}
       />
       <ListOfVideos
         showDemo={this.beforeShowDemo}

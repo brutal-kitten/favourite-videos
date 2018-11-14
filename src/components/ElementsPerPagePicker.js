@@ -14,6 +14,8 @@ class ElementsPerPagePicker extends Component {
     this.props.setIndexes(event.target.value);
   }
 
+
+
   render() {
 
     return (

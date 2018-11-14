@@ -16,7 +16,7 @@ class PageInformation extends Component {
     this.props.setStartIndex(currentPage);
   }
 
-//<input type="number" min="1" type="number" max={this.props.totalPages} value={this.state.currentPage} onChange={(event) => this.handleChange(event)}/>
+
   render () {
 
     return (

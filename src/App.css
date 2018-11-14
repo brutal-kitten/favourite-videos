@@ -65,6 +65,10 @@ input {
   text-align: right;
 }
 
+#selectNumber {
+  width: 45px;
+}
+
 .pageInput,
 .totalPage,
 .totalPageNumber,

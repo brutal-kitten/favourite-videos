@@ -24,6 +24,7 @@ class App extends Component {
       list.push(videoObject);
 
       this.setList(list);
+      this.setState({recalculatePages: true});
       console.log("new list of video");
     };
   }
@@ -65,6 +66,7 @@ class App extends Component {
 
     let list = this.state.listOfVideo.filter(item => (item.id !== videoID));
     this.setList(list);
+    this.setState({recalculatePages: true});
   }
 
 
@@ -131,12 +133,12 @@ class App extends Component {
     let list = this.sortArray(array, sortBy);
     localStorage.setItem('list', JSON.stringify(list));
     console.log(list);
-    this.setState({listOfVideo: list, recalculatePages: true});
+    this.setState({listOfVideo: list});
   }
 
 
   recalculatePagesSetFalse = () => {
-    
+
     this.setState({recalculatePages: false});
   }
 

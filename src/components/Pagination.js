@@ -74,6 +74,27 @@ class Pagination extends Component {
     return filteredList;
   }
 
+  componentDidUpdate () {
+    if(this.props.recalculatePages === true) {
+      let length = this.filterList(this.props.listOfVideo).length;
+      let start = parseInt(this.state.startIndex, 10);
+      let elPerPage =  parseInt(this.state.elementsPerPage, 10);
+      let totalPagesNumber = this.calculateTotalPagesNumber(length, elPerPage);
+      //if an item was deleted
+      if (start >= length) {
+        let startIndex = elPerPage*(totalPagesNumber - 1);
+        this.setState({totalPages: totalPagesNumber, startIndex: startIndex, currentPage: totalPagesNumber});
+        this.props.recalculatePagesSetFalse();
+      } else {
+          //if an item was added
+          if (totalPagesNumber > this.state.totalPages) {
+            this.setState({totalPages: totalPagesNumber});
+            this.props.recalculatePagesSetFalse();
+          }
+        }
+    }
+  }
+
 
   render () {
 

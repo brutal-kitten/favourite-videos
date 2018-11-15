@@ -12,7 +12,8 @@ class App extends Component {
     listOfVideo: [],
     demolist: videoOf10,
     searchResultError: false,
-    sortBy : "new"
+    sortBy : "new",
+    recalculatePages: false
 
   }
 
@@ -130,7 +131,13 @@ class App extends Component {
     let list = this.sortArray(array, sortBy);
     localStorage.setItem('list', JSON.stringify(list));
     console.log(list);
-    this.setState({listOfVideo: list});
+    this.setState({listOfVideo: list, recalculatePages: true});
+  }
+
+
+  recalculatePagesSetFalse = () => {
+    
+    this.setState({recalculatePages: false});
   }
 
 
@@ -163,6 +170,8 @@ class App extends Component {
           )}
         </div>
           <Pagination
+            recalculatePages={this.state.recalculatePages}
+            recalculatePagesSetFalse={this.recalculatePagesSetFalse}
             showDemo={this.showDemo}
             deleteList={this.deleteList}
             sort={this.sort}

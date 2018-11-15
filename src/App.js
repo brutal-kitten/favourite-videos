@@ -87,6 +87,7 @@ class App extends Component {
 
     localStorage.removeItem('list');
     this.setState({listOfVideo : []} );
+    this.setState({recalculatePages: true});
 
   }
 

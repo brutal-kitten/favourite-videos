@@ -85,14 +85,15 @@ class Pagination extends Component {
         let startIndex = elPerPage*(totalPagesNumber - 1);
         this.setState({totalPages: totalPagesNumber, startIndex: startIndex, currentPage: totalPagesNumber});
         this.props.recalculatePagesSetFalse();
-      } else {
-          //if an item was added
-          if (totalPagesNumber > this.state.totalPages) {
+      } else if (totalPagesNumber > this.state.totalPages) {
             this.setState({totalPages: totalPagesNumber});
             this.props.recalculatePagesSetFalse();
+          } else if (length === 0){
+            this.setState({totalPages: 0, currentPage: 1, startIndex: 0});
+            this.props.recalculatePagesSetFalse();
           }
-        }
-    }
+      }
+
   }
 
 

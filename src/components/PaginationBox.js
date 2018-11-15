@@ -15,6 +15,7 @@ class PaginationBox extends Component {
         <PageInformation
           totalPages={this.props.totalPages}
           setStartIndex={this.props.setStartIndex}
+          currentPage={this.props.currentPage}
         />
       </div>
     )

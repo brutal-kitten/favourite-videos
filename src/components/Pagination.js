@@ -9,7 +9,8 @@ class Pagination extends Component {
     showFav: false,
     startIndex: 0,
     elementsPerPage: 10,
-    totalPages: 1
+    totalPages: 1,
+    currentPage: 1
   }
 
 
@@ -40,11 +41,12 @@ class Pagination extends Component {
 
 
   setStartIndex = (currentPage) => {
-    if (currentPage === 1 || currentPage === 0) {
-      this.setState({startIndex : 0});
+    if (currentPage === 1 ) {
+      this.setState({startIndex : 0, currentPage: currentPage });
     } else {
-      let index = parseInt(this.state.elementsPerPage)*(currentPage - 1);
-        this.setState({startIndex : index});
+      let currentMinusOne = currentPage - 1;
+      let index = parseInt(this.state.elementsPerPage, 10)*(currentMinusOne);
+      this.setState({startIndex : index, currentPage: currentPage});
     }
   }
 
@@ -82,6 +84,7 @@ class Pagination extends Component {
         totalPages={this.state.totalPages}
         setStartIndex={this.setStartIndex}
         elementsPerPage={this.state.elementsPerPage}
+        currentPage={this.state.currentPage}
       />
       <ListOfVideos
         showDemo={this.beforeShowDemo}

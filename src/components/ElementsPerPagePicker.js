@@ -6,7 +6,6 @@ class ElementsPerPagePicker extends Component {
 
     event.preventDefault();
     console.log(event.target.value);
-    this.setState({value: event.target.value});
     this.props.setIndexes(event.target.value);
   }
 

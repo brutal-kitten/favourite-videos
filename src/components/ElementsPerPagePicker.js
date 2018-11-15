@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 class ElementsPerPagePicker extends Component {
 
-  state = {
-    value: 10
-  }
-
   handleChange = (event) => {
 
     event.preventDefault();
@@ -21,7 +17,7 @@ class ElementsPerPagePicker extends Component {
     return (
       <div className="elementsPerPagePicker">
         <span className="pickerText">Elements on page</span>
-        <select id="selectNumber" value={this.state.value} onChange={(event) => this.handleChange(event)}>
+        <select id="selectNumber" value={this.props.elementsPerPage} onChange={(event) => this.handleChange(event)}>
           <option value="10">10</option>
           <option value="8">8</option>
           <option value="6">6</option>

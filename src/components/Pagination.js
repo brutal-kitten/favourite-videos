@@ -8,7 +8,7 @@ class Pagination extends Component {
   state = {
     showFav: false,
     startIndex: 0,
-    number: 10,
+    elementsPerPage: 10,
     totalPages: 1
   }
 
@@ -35,7 +35,7 @@ class Pagination extends Component {
 
     let length = this.filterList(this.props.listOfVideo).length;
     let totalPagesNumber = this.calculateTotalPagesNumber(length, number);
-    this.setState({number: number, startIndex: 0, totalPages: totalPagesNumber});
+    this.setState({elementsPerPage: number, startIndex: 0, totalPages: totalPagesNumber});
   }
 
 
@@ -43,7 +43,7 @@ class Pagination extends Component {
     if (currentPage === 1 || currentPage === 0) {
       this.setState({startIndex : 0});
     } else {
-      let index = parseInt(this.state.number)*(currentPage - 1);
+      let index = parseInt(this.state.elementsPerPage)*(currentPage - 1);
         this.setState({startIndex : index});
     }
   }
@@ -59,7 +59,7 @@ class Pagination extends Component {
 
     let filteredList = this.filterList(list);
     let start = parseInt(this.state.startIndex, 10);
-    let number = parseInt(this.state.number, 10);
+    let number = parseInt(this.state.elementsPerPage, 10);
     let finish =  start + number;
     let slicedList = filteredList.slice(start, finish);
     return slicedList;
@@ -81,6 +81,7 @@ class Pagination extends Component {
         setIndexes={this.setIndexes}
         totalPages={this.state.totalPages}
         setStartIndex={this.setStartIndex}
+        elementsPerPage={this.state.elementsPerPage}
       />
       <ListOfVideos
         showDemo={this.beforeShowDemo}

@@ -32,11 +32,19 @@ input {
   text-decoration-color: #5f092b;
 }
 
-button {
+button,
+option,
+select {
   background-color: transparent;
   border: 2px solid #5f092b;
+  margin: 2px;
+  padding: 1px;
 }
 
+button:hover,
+select:hover {
+  background-color: grey;
+}
 
 .infobox {
   font-size: 12px;

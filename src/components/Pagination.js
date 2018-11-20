@@ -80,16 +80,16 @@ class Pagination extends Component {
       let start = parseInt(this.state.startIndex, 10);
       let elPerPage =  parseInt(this.state.elementsPerPage, 10);
       let totalPagesNumber = this.calculateTotalPagesNumber(length, elPerPage);
-      //if an item was deleted
-      if (start >= length) {
-        let startIndex = elPerPage*(totalPagesNumber - 1);
-        this.setState({totalPages: totalPagesNumber, startIndex: startIndex, currentPage: totalPagesNumber});
+
+      if (length === 0) {
+        this.setState({totalPages: 1, currentPage: 1, startIndex: 0});
         this.props.recalculatePagesSetFalse();
-      } else if (totalPagesNumber > this.state.totalPages) {
+      } else if (start >= length) {
+          let startIndex = elPerPage*(totalPagesNumber - 1);
+          this.setState({totalPages: totalPagesNumber, startIndex: startIndex, currentPage: totalPagesNumber});
+          this.props.recalculatePagesSetFalse();
+        } else if (totalPagesNumber > this.state.totalPages){
             this.setState({totalPages: totalPagesNumber});
-            this.props.recalculatePagesSetFalse();
-          } else if (length === 0){
-            this.setState({totalPages: 0, currentPage: 1, startIndex: 0});
             this.props.recalculatePagesSetFalse();
           }
       }

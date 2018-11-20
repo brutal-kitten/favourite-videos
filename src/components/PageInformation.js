@@ -19,11 +19,11 @@ class PageInformation extends Component {
 
     return (
       <div className="pageInfo">
-        <div className="pageText">Page</div>
         <PreviousPage
           currentPage={this.props.currentPage}
           setStartIndex={this.props.setStartIndex}
-        />
+          />
+        <div className="pageText">Page</div>
         <div className="pageInput"><input id="selectPage" min="1" type="number" max={this.props.totalPages} value={this.props.currentPage} onChange={(event) => this.handleChange(event)} />
         </div>
         <div className="totalPage">of</div>

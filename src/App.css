@@ -1,22 +1,41 @@
-.App {
+.App,
+input,
+div,
+p,
+button,
+select {
   text-align: center;
+  color: #5f092b;
+}
+
+body {
+  background: url('https://images.pexels.com/photos/1020317/pexels-photo-1020317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350');
+  background-size: auto;
+  font-family: Helvetica,Arial,sans-serif;
 }
 
 .App-header {
-  background-color: #282c34;
   height: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  color: grey;
+  color: #5f092b;
 }
 
 input {
   width: 60%;
-  border: 1px solid grey ;
+  border: 2px solid #5f092b;
+  background-color: transparent;
+  text-decoration-color: #5f092b;
 }
+
+button {
+  background-color: transparent;
+  border: 2px solid #5f092b;
+}
+
 
 .infobox {
   font-size: 12px;
@@ -49,12 +68,19 @@ input {
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   background-color: rgba(0,0,0,0.4);
   overflow: auto;
   border: 1px solid black;
+  padding: 2%;
+  text-align: center;
+}
+
+iframe {
+  width: 96%;
+  height: 96%;
+  text-align: center;
 }
 
 .paginationBox {
@@ -68,6 +94,8 @@ input {
 
 #selectNumber {
   width: 45px;
+  background-color: transparent;
+  border: 2px solid #5f092b;
 }
 
 .pageInput,
@@ -82,5 +110,5 @@ input {
 
 .pageInfo {
   display: inline-grid;
-  grid-template-columns: 50px auto 35px 25px 25px auto;
+  grid-template-columns: auto 50px 35px 25px 25px auto;
 }

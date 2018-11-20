@@ -22,7 +22,7 @@ class ShowVideo extends Component {
     return (
       <div className="window">
         <button type="button" onClick={(event) => this.handleClick(event)}>Close</button>
-        <YouTube
+        <YouTube 
           videoId={this.props.videoId}
           opts={opts}
           onReady={this._onReady}

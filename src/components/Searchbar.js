@@ -74,7 +74,6 @@ class Searchbar extends Component {
 
     return (
       <div className="searchbar">
-        <h2>Make a list of your favorite videos</h2>
         <form onSubmit={(event) => this.handleSubmit(event)}>
           Enter video URL or identifier: <br/>
           <input type="text"

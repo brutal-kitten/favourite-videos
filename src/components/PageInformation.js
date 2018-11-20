@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PreviousPage from './PreviousPage';
+import NextPage from './NextPage';
 
 class PageInformation extends Component {
 
@@ -18,10 +20,19 @@ class PageInformation extends Component {
     return (
       <div className="pageInfo">
         <div className="pageText">Page</div>
+        <PreviousPage
+          currentPage={this.props.currentPage}
+          setStartIndex={this.props.setStartIndex}
+        />
         <div className="pageInput"><input id="selectPage" min="1" type="number" max={this.props.totalPages} value={this.props.currentPage} onChange={(event) => this.handleChange(event)} />
         </div>
         <div className="totalPage">of</div>
         <span className="totalPagesNumber">{this.props.totalPages}</span>
+        <NextPage
+          currentPage={this.props.currentPage}
+          totalPages={this.props.totalPages}
+          setStartIndex={this.props.setStartIndex}
+        />
       </div>
     )
   }

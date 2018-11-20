@@ -60,9 +60,10 @@ input {
 .paginationBox {
   margin: 10px;
   display: inline-grid;
-  grid-template-columns: auto 20%;
+  grid-template-columns: 40% auto;
   width: 90vw;
   text-align: right;
+  font-size: 14px;
 }
 
 #selectNumber {
@@ -72,12 +73,14 @@ input {
 .pageInput,
 .totalPage,
 .totalPageNumber,
-.pageText {
+.pageText,
+.nextPage,
+.previousPage {
   width: 100%;
   text-align: center;
 }
 
 .pageInfo {
   display: inline-grid;
-  grid-template-columns: 50px 35px 25px 25px;
+  grid-template-columns: 50px auto 35px 25px 25px auto;
 }

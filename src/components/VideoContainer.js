@@ -25,7 +25,7 @@ class VideoContainer extends Component {
 
 
     return (
-        <div className="grid-container" id="videocontainer">
+        <div className="grid-container videocontainer">
           {this.state.error === true && (
             <div className="noresult">
             <h3>There is no such video</h3>

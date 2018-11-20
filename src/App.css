@@ -6,12 +6,17 @@ button,
 select {
   text-align: center;
   color: #5f092b;
+  font-size: 12px;
 }
 
 body {
   background: url('https://images.pexels.com/photos/1020317/pexels-photo-1020317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350');
   background-size: auto;
   font-family: Helvetica,Arial,sans-serif;
+}
+
+#root {
+  width: 100%;
 }
 
 .App-header {
@@ -64,6 +69,10 @@ select:hover {
   margin: 5px 0 5px 0;
 }
 
+.videocontainer {
+  border: 2px solid #5f092b;
+}
+
 .searchbar {
   margin: 2% 0 2% 0;
 }
@@ -95,7 +104,7 @@ iframe {
 .paginationBox {
   margin: 10px;
   display: inline-grid;
-  grid-template-columns: 40% auto;
+  grid-template-columns: 35% auto;
   width: 90vw;
   text-align: right;
   font-size: 14px;
@@ -119,5 +128,32 @@ iframe {
 
 .pageInfo {
   display: inline-grid;
-  grid-template-columns: auto 50px 35px 25px 25px auto;
+  grid-template-columns: auto 30px 25px 15px 15px auto;
 }
+
+
+@media screen and (max-width: 510px) {
+
+  .App-header {
+    height: 10%;
+    margin: 5px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .elementsPerPagePicker{
+    width: 100%;
+  }
+
+}
+
+@media screen and (min-width: 510px) and (max-width: 710px) {
+}
+
+@media screen and (min-width: 710px) and (max-width: 800px) {
+}
+
+@media screen and (min-width: 800px) {}

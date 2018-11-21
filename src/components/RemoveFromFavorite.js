@@ -10,7 +10,8 @@ class RemoveFromFavorite extends Component {
   render() {
     return(
       <div className="removeFromFav" >
-        <button type="button" onClick={(event) => this.handleClick(event)}>Remove from favorite</button>
+        <button type="button" onClick={(event) => this.handleClick(event)}>
+          <span className="glyphicon glyphicon-star"></span></button>
       </div>
     )
   }

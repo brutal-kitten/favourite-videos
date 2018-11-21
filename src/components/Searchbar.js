@@ -81,7 +81,7 @@ class Searchbar extends Component {
             value={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}
           />
-          <button type="submit">Add video to my list</button>
+          <button type="submit"><span className="glyphicon glyphicon-plus"></span></button>
         </form>
       </div>
     )

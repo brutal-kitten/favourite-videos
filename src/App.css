@@ -41,6 +41,9 @@ input {
   color: #5f092b;
 }
 
+.panel {
+  background-color: transparent;
+}
 button,
 option,
 select {
@@ -57,6 +60,12 @@ select:hover {
 
 .infobox {
   font-size: 12px;
+}
+
+button.glyphicon-remove {
+  position:sticky;
+  top: 0;
+  right: 0;
 }
 
 .grid-container {
@@ -132,7 +141,7 @@ iframe {
 
 .pageInfo {
   display: inline-grid;
-  grid-template-columns: auto 30px 25px 15px 15px auto;
+  grid-template-columns: auto 30px 30px 15px 15px auto;
 }
 
 

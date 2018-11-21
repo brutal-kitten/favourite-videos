@@ -21,8 +21,10 @@ class ShowVideo extends Component {
 
     return (
       <div className="window">
-        <button type="button" onClick={(event) => this.handleClick(event)}>Close</button>
-        <YouTube 
+        <button type="button" onClick={(event) => this.handleClick(event)}>
+          <span className="glyphicon glyphicon-remove"></span>
+        </button>
+        <YouTube
           videoId={this.props.videoId}
           opts={opts}
           onReady={this._onReady}

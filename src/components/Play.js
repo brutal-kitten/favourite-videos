@@ -10,7 +10,7 @@ class Play extends Component {
   render() {
     return(
       <div className="play" >
-        <button type="button" onClick={(event) => this.handleClick(event)}>Play</button>
+        <button type="button" onClick={(event) => this.handleClick(event)}><span className="glyphicon glyphicon-play-circle"></span></button>
       </div>
     )
   }

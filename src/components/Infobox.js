@@ -17,10 +17,10 @@ class Infobox extends Component {
 
     return (
       <div className="infobox grid-item">
-        <div className="title"> Title: <span>{this.props.title}</span></div>
-        <div className="addedAt">Published At: <span> {this.props.date}</span></div>
-        <div className="likes"><span>{this.props.likes}</span> Likes</div>
-        <div className="views"><span>{this.props.views}</span> Views</div>
+        <div className="title">{this.props.title}</div>
+        <div className="addedAt">{this.props.date}</div>
+        <div className="likes"><span>{this.props.likes}</span> <span className="glyphicon glyphicon-heart"></span></div>
+        <div className="views"><span>{this.props.views}</span> views</div>
       </div>
     )
   }

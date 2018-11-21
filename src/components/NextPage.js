@@ -18,7 +18,7 @@ class NextPage extends Component {
     return (
       <div className="nextPage">
         <button onClick={(event) => this.handleChange(event)}>
-        Next Page
+          <span className="glyphicon glyphicon-chevron-right"></span>
         </button>
       </div>
     )

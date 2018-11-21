@@ -16,11 +16,11 @@ class Infobox extends Component {
 
 
     return (
-      <div className="infobox grid-item">
-        <div className="title">{this.props.title}</div>
-        <div className="addedAt">{this.props.date}</div>
-        <div className="likes"><span>{this.props.likes}</span> <span className="glyphicon glyphicon-heart"></span></div>
-        <div className="views"><span>{this.props.views}</span> views</div>
+      <div className="info">
+        <div className="title infobox">{this.props.title}</div>
+        <div className="addedAt infobox">{this.props.date}</div>
+        <div className="likes infobox"><span>{this.props.likes}</span> <span className="glyphicon glyphicon-heart"></span></div>
+        <div className="views infobox"><span>{this.props.views}</span> views</div>
       </div>
     )
   }

@@ -44,6 +44,7 @@ input {
 .panel {
   background-color: transparent;
 }
+
 button,
 option,
 select {
@@ -58,12 +59,19 @@ select:hover {
   background-color: grey;
 }
 
-.infobox {
+div.infobox {
   font-size: 12px;
+  text-align: left;
+  margin: 2px;
+}
+
+.info {
+  display: inline-grid;
+  grid-template-rows: 20% 20% 20% 20%;
 }
 
 button.glyphicon-remove {
-  position:sticky;
+  position: sticky;
   top: 0;
   right: 0;
 }
@@ -71,8 +79,26 @@ button.glyphicon-remove {
 .grid-container {
   display: inline-grid;
   width: 90vw;
-  grid-template-columns: 20% 10% auto;
+  grid-template-columns:  45% 15% auto;
   margin: 5px 0 5px 0;
+}
+
+img {
+  width: 100%;
+
+}
+
+.info,
+img,
+.panel {
+  margin: 5px;
+  padding: 5px;
+}
+
+div.title.infobox {
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .grid-container2 {
@@ -82,8 +108,11 @@ button.glyphicon-remove {
   margin: 5px 0 5px 0;
 }
 
+
 .videocontainer {
   border: 2px solid #5f092b;
+  text-align: left;
+  padding: 5px;
 }
 
 .searchbar {
@@ -113,6 +142,7 @@ iframe {
   height: 96%;
   text-align: center;
 }
+
 
 .paginationBox {
   margin: 10px;
@@ -144,8 +174,46 @@ iframe {
   grid-template-columns: auto 30px 30px 15px 15px auto;
 }
 
+.glyphicon {
+  font-size: 18px;
+}
 
-@media screen and (max-width: 510px) {
+
+@media screen and (max-width: 340px) {
+
+  .infobox {
+    font-size: 8px;
+      margin: 1px;
+  }
+
+  .glyphicon {
+    font-size: 14px;
+  }
+
+  .grid-container {
+    grid-template-columns: 40% 10% auto;
+    padding: 3px;
+  }
+  .grid-item,
+  img {
+    margin: 2px;
+    padding: 2px;
+  }
+
+  .grid-container,
+  .videocontainer,
+  .grid-item {
+    height: 100px;
+  }
+
+  .info {
+    display: inline-grid;
+    grid-template-rows: 20px 20px 20px 20px;
+  }
+
+}
+
+@media screen and (min-width: 340px) and (max-width: 450px) {
 
   .App-header {
     height: 10%;
@@ -160,6 +228,25 @@ iframe {
   .elementsPerPagePicker{
     width: 100%;
   }
+
+  .infobox {
+    font-size: 10px;
+  }
+
+  .grid-container,
+  .grid-item {
+    height: 130px;
+  }
+
+  .glyphicon-heart {
+    font-size: 12px;
+  }
+
+  img {
+    max-height: 110px;
+
+  }
+
 
 }
 

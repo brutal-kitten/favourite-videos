@@ -10,7 +10,7 @@ class Picture extends Component {
   render() {
     return(
       <div className="pic grid-item" >
-        <img src={this.props.thumbnails} alt="cover picture of video" onClick={(event) => this.handleClick(event)} />
+        <img src={this.props.thumbnails} alt="thumbnail" onClick={(event) => this.handleClick(event)} />
       </div>
     )
   }

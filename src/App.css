@@ -37,6 +37,10 @@ input {
   text-decoration-color: #5f092b;
 }
 
+::placeholder {
+  color: #5f092b;
+}
+
 button,
 option,
 select {

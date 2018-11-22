@@ -297,6 +297,7 @@ button.buttonRemoveFromFav {
   h3 {
     font-size: 16px;
     font-weight: bolder;
+    padding-top: 10px;
   }
 
   .elementsPerPagePicker{
@@ -337,6 +338,13 @@ button.buttonRemoveFromFav {
 
   .list {
     margin-top: 40px;
+  }
+
+  button.buttonShowDemo,
+  button.buttonDeleteList,
+  button.buttonShowFav,
+  button.buttonReturnToList {
+    height: 40px;
   }
 
 }

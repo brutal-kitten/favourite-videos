@@ -11,7 +11,7 @@ class ShowDemo extends Component {
 
     return (
       <div className="showDemo" >
-        <button type="button" onClick={(event) => this.handleClick(event)}>Show demolist</button>
+        <button className="buttonShowDemo" type="button" onClick={(event) => this.handleClick(event)}>Show demolist</button>
       </div>
     )
   }

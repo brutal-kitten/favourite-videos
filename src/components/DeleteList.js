@@ -10,7 +10,7 @@ class DeleteList extends Component {
   render() {
     return(
       <div className="deleteList" >
-        <button type="button" onClick={(event) => this.handleClick(event)}>Delete list</button>
+        <button className="buttonDeleteList" type="button" onClick={(event) => this.handleClick(event)}>Delete list</button>
       </div>
     )
   }

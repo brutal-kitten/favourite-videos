@@ -82,7 +82,7 @@ class Pagination extends Component {
       let totalPagesNumber = this.calculateTotalPagesNumber(length, elPerPage);
 
       if (length === 0) {
-        this.setState({totalPages: 1, currentPage: 1, startIndex: 0});
+        this.setState({totalPages: 1, currentPage: 1, startIndex: 0, elementsPerPage: 10});
         this.props.recalculatePagesSetFalse();
       } else if (start >= length) {
           let startIndex = elPerPage*(totalPagesNumber - 1);

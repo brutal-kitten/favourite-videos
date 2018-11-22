@@ -15,13 +15,17 @@ body {
   font-family: Helvetica,Arial,sans-serif;
 }
 
+html, body {
+ max-width: 100vw;
+overflow-x: hidden;
+   }
+
 #root {
   width: 100%;
 }
 
 .App-header {
-  height: 5%;
-  margin: 5%;
+  margin: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,8 +34,8 @@ body {
   color: #5f092b;
 }
 
-input {
-  width: 60%;
+input.search {
+  width: 50%;
   border: 2px solid #5f092b;
   background-color: transparent;
   text-decoration-color: #5f092b;
@@ -39,8 +43,19 @@ input {
   height: 25px;
 }
 
+input {
+  border: 2px solid #5f092b;
+  background-color: transparent;
+  text-decoration-color: #5f092b;
+  margin: 2px;
+}
+
 .addToList {
   height: 25px;
+}
+
+button.addToList {
+  margin-left: 5px;
 }
 
 ::placeholder {
@@ -58,6 +73,12 @@ select {
   border: 2px solid #5f092b;
   margin: 2px;
   padding: 1px;
+  font-size: 14px;
+}
+
+span,
+form {
+  font-size: 14px;
 }
 
 
@@ -110,6 +131,7 @@ div.title.infobox {
   width: 90vw;
   grid-template-columns: auto auto auto auto;
   margin: 5px 0 5px 0;
+  padding: 5px;
 }
 
 
@@ -125,7 +147,7 @@ div.title.infobox {
 
 .list,
 .searchResult {
-  margin: 10px 5% 5px 5%;
+  margin: 10px auto 5px auto;
 }
 
 .window {
@@ -150,7 +172,6 @@ iframe {
 
 .paginationBox {
   margin: 10px;
-
   width: 90vw;
   text-align: right;
   font-size: 14px;
@@ -173,7 +194,7 @@ iframe {
 
 div.pageInfo {
   display: inline-grid;
-  grid-template-columns: 35px 35px 25px 25px 35px;
+  grid-template-columns: 35px auto 25px 25px 35px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -186,8 +207,7 @@ div.pageInfo {
 }
 
 .elementsPerPagePicker{
-  margin: 5px;
-  padding: 5px;
+  margin-top: 5px;
 }
 
 .buttonPreviousPage,
@@ -203,6 +223,24 @@ button.buttonPlay,
 button.buttonAddFav,
 button.buttonRemoveFromFav {
   border: 0;
+}
+
+h1,
+h3 {
+  font-weight: bolder;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.totalPage,
+.totalPagesNumber {
+  font-size: 20px;
 }
 
 
@@ -222,7 +260,6 @@ button.buttonRemoveFromFav {
   h1,
   h3 {
     font-size: 16px;
-    font-weight: bolder;
   }
 
   .glyphicon {
@@ -280,6 +317,15 @@ button.buttonRemoveFromFav {
     margin-top: 40px;
   }
 
+  button.buttonShowDemo,
+  button.buttonDeleteList,
+  button.buttonShowFav,
+  button.buttonReturnToList,
+  span,
+  select {
+    font-size: 12px;
+  }
+
 }
 
 @media screen and (min-width: 341px) and (max-width: 450px) {
@@ -292,12 +338,10 @@ button.buttonRemoveFromFav {
 
   h1 {
     font-size: 20px;
-    font-weight: bolder;
   }
 
   h3 {
     font-size: 16px;
-    font-weight: bolder;
     padding-top: 10px;
   }
 
@@ -346,6 +390,12 @@ button.buttonRemoveFromFav {
   button.buttonShowFav,
   button.buttonReturnToList {
     height: 40px;
+    font-size: 12px;
+  }
+
+  span,
+  select {
+    font-size: 12px;
   }
 
 }
@@ -380,7 +430,18 @@ button.buttonRemoveFromFav {
     font-size: 12px;
   }
 
+  button.buttonShowDemo,
+  button.buttonDeleteList,
+  button.buttonShowFav,
+  button.buttonReturnToList {
+    font-size: 12px;
+  }
 
+  .paginationBox {
+    display: inline-grid;
+    grid-template-columns: 200px 165px;
+    margin-left: calc(95vw - 365px);
+  }
 
 }
 
@@ -388,7 +449,7 @@ button.buttonRemoveFromFav {
 
   .listContainer {
     display: inline-grid;
-    grid-template-columns: 35vw 35vw 35vw;
+    grid-template-columns: 32vw 32vw 32vw;
   }
 
   .grid-container {
@@ -409,6 +470,12 @@ button.buttonRemoveFromFav {
   div.title.infobox {
     text-align: center;
     font-size: 14px;
+  }
+
+  .paginationBox {
+    display: inline-grid;
+    grid-template-columns: 200px 165px;
+    margin-left: calc(95vw - 365px);
   }
 
 }
@@ -439,6 +506,12 @@ button.buttonRemoveFromFav {
     text-align: center;
     font-size: 14px;
   }
+
+  .paginationBox {
+    display: inline-grid;
+    grid-template-columns: 200px 165px;
+    margin-left: calc(95vw - 365px);
+  }
 }
 
 @media screen and (min-width: 951px) {
@@ -467,5 +540,12 @@ button.buttonRemoveFromFav {
     text-align: center;
     font-size: 14px;
   }
+
+  .paginationBox {
+    display: inline-grid;
+    grid-template-columns: 200px 165px;
+    margin-left: calc(95vw - 365px);
+  }
+
 
 }

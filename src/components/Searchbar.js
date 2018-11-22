@@ -76,7 +76,7 @@ class Searchbar extends Component {
       <div className="searchbar">
         <form onSubmit={(event) => this.handleSubmit(event)}>
           Enter video URL or identifier: <br/>
-          <input type="text"
+          <input className="search" type="text"
             placeholder= "Let's find a video"
             value={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}

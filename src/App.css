@@ -35,6 +35,12 @@ input {
   border: 2px solid #5f092b;
   background-color: transparent;
   text-decoration-color: #5f092b;
+  margin: 2px;
+  height: 25px;
+}
+
+.addToList {
+  height: 25px;
 }
 
 ::placeholder {
@@ -54,10 +60,7 @@ select {
   padding: 1px;
 }
 
-button:hover,
-select:hover {
-  background-color: grey;
-}
+
 
 div.infobox {
   font-size: 12px;
@@ -116,7 +119,7 @@ div.title.infobox {
 }
 
 .searchbar {
-  margin: 2% 0 2% 0;
+  margin: 2% auto 2% auto;
 }
 
 .list,
@@ -146,8 +149,7 @@ iframe {
 
 .paginationBox {
   margin: 10px;
-  display: inline-grid;
-  grid-template-columns: 35% auto;
+
   width: 90vw;
   text-align: right;
   font-size: 14px;
@@ -162,20 +164,44 @@ iframe {
 .pageInput,
 .totalPage,
 .totalPageNumber,
-.pageText,
 .nextPage,
 .previousPage {
   width: 100%;
   text-align: center;
 }
 
-.pageInfo {
+div.pageInfo {
   display: inline-grid;
-  grid-template-columns: auto 30px 30px 15px 15px auto;
+  grid-template-columns: 35px 35px 25px 25px 35px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  width: 165px;
 }
 
 .glyphicon {
   font-size: 18px;
+}
+
+.elementsPerPagePicker{
+  margin: 5px;
+  padding: 5px;
+}
+
+.buttonPreviousPage,
+.pageText {
+  height: 25px;
+}
+
+button.addToList,
+button.buttonPreviousPage,
+button.buttonNextPage,
+button.buttonDelete,
+button.buttonPlay,
+button.buttonAddFav,
+button.buttonRemoveFromFav {
+  border: 0;
 }
 
 
@@ -183,17 +209,31 @@ iframe {
 
   .infobox {
     font-size: 8px;
-      margin: 1px;
+    margin: 1px;
+  }
+
+  .App-header {
+    height: 5%;
+    margin: 5px;
+    text-align: center;
+  }
+
+  h1,
+  h3 {
+    font-size: 16px;
+    font-weight: bolder;
   }
 
   .glyphicon {
     font-size: 14px;
   }
 
+
   .grid-container {
     grid-template-columns: 40% 10% auto;
     padding: 3px;
   }
+
   .grid-item,
   img {
     margin: 2px;
@@ -211,9 +251,37 @@ iframe {
     grid-template-rows: 20px 20px 20px 20px;
   }
 
+  .paginationBox {
+    margin: 10px;
+    width: 90vw;
+  }
+
+  div.pageInfo,
+  .elementsPerPagePicker {
+    width: 165px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+  }
+
+  div.pageInfo {
+    position: absolute;
+    left: calc((100vw - 165px)/2);
+  }
+
+  .totalPage,
+  .totalPagesNumber {
+    font-size: 18px;
+  }
+
+  .list {
+    margin-top: 40px;
+  }
+
 }
 
-@media screen and (min-width: 340px) and (max-width: 450px) {
+@media screen and (min-width: 341px) and (max-width: 450px) {
 
   .App-header {
     height: 10%;
@@ -223,6 +291,12 @@ iframe {
 
   h1 {
     font-size: 20px;
+    font-weight: bolder;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: bolder;
   }
 
   .elementsPerPagePicker{
@@ -246,7 +320,24 @@ iframe {
     max-height: 110px;
 
   }
+  .info {
+    display: inline-grid;
+    grid-template-rows: 22px 25px 25px 25px;
+  }
 
+  .totalPage,
+  .totalPagesNumber {
+    font-size: 18px;
+  }
+
+  div.pageInfo {
+    position: absolute;
+    left: calc((100vw - 165px)/2);
+  }
+
+  .list {
+    margin-top: 40px;
+  }
 
 }
 

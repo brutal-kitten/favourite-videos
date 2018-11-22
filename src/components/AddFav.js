@@ -12,7 +12,7 @@ class AddFav extends Component {
   render() {
     return(
       <div className="addFav" >
-        <button type="button" onClick={(event) => this.handleClick(event)}>
+        <button  className="buttonAddFav" type="button" onClick={(event) => this.handleClick(event)}>
           <span className="glyphicon glyphicon-star-empty"></span></button>
       </div>
     )

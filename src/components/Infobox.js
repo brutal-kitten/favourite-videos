@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 class Infobox extends Component {
 
+  // component show information about each video
+
   static propTypes = {
     title: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
@@ -12,8 +14,6 @@ class Infobox extends Component {
 
 
   render() {
-
-
 
     return (
       <div className="info">

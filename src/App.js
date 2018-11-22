@@ -14,22 +14,20 @@ class App extends Component {
     searchResultError: false,
     sortBy : "new",
     recalculatePages: false
-
   }
 
+  //if there is no such item in array, add it to array
   addToList = (videoObject) => {
 
     let list = this.state.listOfVideo;
     if (this.state.listOfVideo.filter(item => (item.id === videoObject.id)).length < 1) {
       list.push(videoObject);
-
       this.setList(list);
       this.setState({recalculatePages: true});
-      console.log("new list of video");
     };
   }
 
-
+  //change the favorite attribute on true in object with given id
   addToFavorite = (videoID) => {
 
     let list = this.state.listOfVideo.map(function (item) {
@@ -37,15 +35,13 @@ class App extends Component {
         item.favorite = true;
         return item;
       } else {
-        return item;
-     }
-   });
-
+          return item;
+        }
+    });
     this.setList(list);
-    console.log("just added to favorite");
   }
 
-
+  //change the favorite attribute on false in object with given id
   removeFromFavorite = (videoID) => {
 
     let list = this.state.listOfVideo.map(function (item) {
@@ -54,14 +50,12 @@ class App extends Component {
         return item;
       } else {
         return item;
-     }
-   });
-
+      }
+    });
     this.setList(list);
-    console.log(" just remove  from favorite");
   }
 
-
+  //set new array without item with given id
   deleteVideo = (videoID) => {
 
     let list = this.state.listOfVideo.filter(item => (item.id !== videoID));
@@ -75,11 +69,10 @@ class App extends Component {
     this.setState({searchResultError: changeTo});
   }
 
-
+  //sort and set demolist as listOfVideo in state
   showDemo = () => {
 
-    let list = this.sortArray(this.state.demolist, this.state.sortBy);
-    this.setState({listOfVideo: list});
+    this.setList(this.state.demolist);
   }
 
 
@@ -91,28 +84,25 @@ class App extends Component {
 
   }
 
+  //sort list and set new state
   sort = (value) => {
-    console.log(value);
     this.setList(this.state.listOfVideo, value);
     this.setState({sortBy: value});
   }
 
+  //take array and parameter for sorting, returns sorted array
   sortArray = (list, sortBy) => {
 
-    console.log("inSort");
-    console.log(this.state.sortBy);
-    console.log(sortBy);
     if (sortBy === "new") {
       let sortedlist = list.sort((first, second) => this.sortByNewest(first, second));
-      console.log(sortedlist);
       return sortedlist;
     } else {
       let sortedlist = list.sort((first, second) => this.sortByOldest(first, second));
-      console.log(sortedlist);
       return sortedlist;
     }
   }
 
+  //sort by newest date
   sortByNewest = (first, second) => {
 
     let a = Date.parse(first.date);
@@ -120,7 +110,7 @@ class App extends Component {
     return (a > b) ?  -1 : 1;
   }
 
-
+  //sort by oldest date
   sortByOldest = (first, second) => {
 
     let a = Date.parse(first.date);
@@ -128,12 +118,11 @@ class App extends Component {
     return (a > b) ?  1 : -1;
   }
 
-
+  // sort given array, set item in local storage, set new state
   setList = (array, sortBy=this.state.sortBy) => {
 
     let list = this.sortArray(array, sortBy);
     localStorage.setItem('list', JSON.stringify(list));
-    console.log(list);
     this.setState({listOfVideo: list});
   }
 
@@ -143,7 +132,7 @@ class App extends Component {
     this.setState({recalculatePages: false});
   }
 
-
+  //check if there is array in local storage from previous time
   componentDidMount() {
 
     const cachedList = localStorage.getItem('list');
@@ -154,9 +143,7 @@ class App extends Component {
   };
 
 
-
-
-  render() {
+  render () {
 
     return (
       <div className="App">
@@ -169,22 +156,22 @@ class App extends Component {
         />
         <div className="search-video-result">
           {this.state.searchResultError === true && (
-          <p>There is no such video</p>
+            <p>There is no such video</p>
           )}
         </div>
-          <Pagination
-            recalculatePages={this.state.recalculatePages}
-            recalculatePagesSetFalse={this.recalculatePagesSetFalse}
-            showDemo={this.showDemo}
-            deleteList={this.deleteList}
-            sort={this.sort}
-            listOfVideo={this.state.listOfVideo}
-            addToFavorite={this.addToFavorite}
-            removeFromFavorite={this.removeFromFavorite}
-            deleteVideo={this.deleteVideo}
-            playVideo={this.props.playVideo}
-            changeSearchResultError={this.changeSearchResultError}
-          />
+        <Pagination
+          recalculatePages={this.state.recalculatePages}
+          recalculatePagesSetFalse={this.recalculatePagesSetFalse}
+          showDemo={this.showDemo}
+          deleteList={this.deleteList}
+          sort={this.sort}
+          listOfVideo={this.state.listOfVideo}
+          addToFavorite={this.addToFavorite}
+          removeFromFavorite={this.removeFromFavorite}
+          deleteVideo={this.deleteVideo}
+          playVideo={this.props.playVideo}
+          changeSearchResultError={this.changeSearchResultError}
+        />
       </div>
     )
   }

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class ElementsPerPagePicker extends Component {
 
+  //calls function thet recalculate and set new state (elementsPerPage, startIndex, totalPages) in Pagination component
   handleChange = (event) => {
 
     event.preventDefault();
-    console.log(event.target.value);
     this.props.setIndexes(event.target.value);
   }
 

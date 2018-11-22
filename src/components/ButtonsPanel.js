@@ -10,16 +10,19 @@ class ButtonsPanel extends Component {
     key: ''
   }
 
+  //trigger state in order to toggle buttons add to/remove from favorite
   trigger = () => {
     this.setState({key: Math.random()});
   }
 
+
   render() {
+
     return(
       <div className="panel grid-item" key={this.state.key} >
         <Play
-        id={this.props.id}
-        playVideo={this.props.playVideo}
+          id={this.props.id}
+          playVideo={this.props.playVideo}
         />
         <Delete
           deleteVideo={this.props.deleteVideo}

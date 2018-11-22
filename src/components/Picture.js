@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 class Picture extends Component {
 
   handleClick = (event) => {
+
     event.preventDefault();
     this.props.playVideo(this.props.id);
   }
 
-  render() {
+  render () {
+
     return(
       <div className="pic grid-item" >
         <img src={this.props.thumbnails} alt="thumbnail" onClick={(event) => this.handleClick(event)} />

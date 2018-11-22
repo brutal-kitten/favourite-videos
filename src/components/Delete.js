@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 
 class Delete extends Component {
 
+  //calls function to delete video by id
   handleClick = (event) => {
+
     event.preventDefault();
     this.props.deleteVideo(this.props.id);
   }
 
+
   render() {
+
     return(
       <div className="delete" >
         <button className="buttonDelete" type="button" onClick={(event) => this.handleClick(event)} >

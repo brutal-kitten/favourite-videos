@@ -5,6 +5,7 @@ import YouTube from 'react-youtube';
 class ShowVideo extends Component {
 
   handleClick = (event) => {
+
     event.preventDefault();
     this.props.closeModal();
   }
@@ -19,7 +20,7 @@ class ShowVideo extends Component {
       }
     };
 
-    return (
+    return(
       <div className="window">
         <button type="button" onClick={(event) => this.handleClick(event)}>
           <span className="glyphicon glyphicon-remove"></span>

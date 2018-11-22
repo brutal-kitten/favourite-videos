@@ -5,8 +5,6 @@ import NavButtons from './NavButtons';
 
 class ListOfVideos extends Component {
 
-
-
   render() {
 
     return (

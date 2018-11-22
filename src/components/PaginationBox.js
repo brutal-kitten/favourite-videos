@@ -4,7 +4,7 @@ import PageInformation from './PageInformation';
 
 class PaginationBox extends Component {
 
-  render() {
+  render () {
 
     return (
       <div className="paginationBox">

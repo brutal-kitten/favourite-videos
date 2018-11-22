@@ -8,29 +8,26 @@ import Modal from './Modal'
 class VideoContainer extends Component {
 
   state = {
-    error: false,
     showModal: false
   }
 
-  playVideo = (id) => {
+
+  playVideo = () => {
+
     this.setState({showModal: true});
   }
 
+
   closeModal = () => {
+
     this.setState({showModal: false})
   }
 
+
   render() {
 
-
-
-    return (
+    return(
         <div className="grid-container videocontainer">
-          {this.state.error === true && (
-            <div className="noresult">
-            <h3>There is no such video</h3>
-            </div>
-          )}
           <Picture
             thumbnails={this.props.thumbnails}
             playVideo={this.playVideo}

@@ -6,10 +6,10 @@ class Sort extends Component {
     value: 'new'
   }
 
+  //calls function that sorts item by oldest/newest added and change own state to new value
   handleChange = (event) => {
 
     event.preventDefault();
-    console.log(event.target.value);
     this.props.sort(event.target.value);
     this.setState({value: event.target.value});
   }

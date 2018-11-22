@@ -9,6 +9,7 @@ class Searchbar extends Component {
     videoId: ''
   }
 
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.detectID();
@@ -16,59 +17,56 @@ class Searchbar extends Component {
     this.props.changeSearchResultError(false);
   }
 
+  //sets new id and calls function that fetch info about video
   setId = (newId) => {
     this.setState({videoId: newId});
     this.clearQuery();
     this.getInfo(newId);
-
-
   }
 
+  //fetch information about video from youtube and add item to list or set error state in App.js
   getInfo = (id) => {
     const url = `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=AIzaSyB7asSzTvcMogycBslu8o4RB3DjOumaqtA&part=snippet,contentDetails,statistics,status`
     fetch(url)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result.items[0]);
         if(result.items[0]) {
           this.props.addToList({id: result.items[0].id, favorite: false, date: `${new Date(result.items[0].snippet.publishedAt).toDateString()}`, title: result.items[0].snippet.title, views: result.items[0].statistics.viewCount, likes: result.items[0].statistics.likeCount, thumbnails: result.items[0].snippet.thumbnails.default.url });
         } else {
           this.props.changeSearchResultError(true);
-
         }
-
       })
   }
 
+  //check what version of link is it and call function that set state
   detectID = () => {
     let query = this.state.query;
     if (query.match('https://youtu.be')) {
       let id = query.split('youtu.be/')[1];
-      console.log(id);
       this.setId(id);
     } else if(query.match('https://www.youtube.com')) {
               let id = query.split('v=')[1];
-              console.log(id);
               this.setId(id);
             } else {
-              console.log(query);
                 this.setId(query);
             };
   }
 
-  /*update state*/
+  //update state
   updateQuery = (value) => {
     this.setState({query: value});
   }
 
-  /*clear query and update state*/
+  //clear query and update state
   clearQuery = () => {
     this.setState({query: ''});
   }
 
+  //set empty id
   clearID = () => {
     this.setState({videoId: ''});
   }
+
 
   render () {
 

@@ -15,8 +15,8 @@ class Pagination extends Component {
 
 
   showFavorite = () => {
-
-    this.setState({showFav: true});
+    let total = this.calculateTotalPagesNumber(this.props.listOfVideo.filter(item => (item.favorite === true)).length, this.state.elementsPerPage);
+    this.setState({showFav: true, startIndex: 0, currentPage: 1, totalPages: total});
   }
 
 

@@ -141,6 +141,7 @@ div.title.infobox {
 
 .searchbar {
   margin: 2% auto 2% auto;
+  font-size: 14px;
 }
 
 .list,
@@ -174,8 +175,9 @@ iframe {
   font-size: 14px;
 }
 
-#selectNumber {
-  width: 45px;
+#selectNumber,
+#selectPage {
+  width: 60px;
   background-color: transparent;
   border: 2px solid #5f092b;
 }
@@ -396,6 +398,7 @@ h3 {
   select {
     font-size: 12px;
   }
+
 }
 
 @media screen and (min-width: 451px) and (max-width: 650px) {

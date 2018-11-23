@@ -22,7 +22,7 @@ class ShowVideo extends Component {
 
     return(
       <div className="window">
-        <button type="button"  className="closeModal" onClick={(event) => this.handleClick(event)}>
+        <button tabindex='0' type="button"  className="closeModal" onClick={(event) => this.handleClick(event)}>
           <span className="glyphicon glyphicon-remove"></span>
         </button>
         <YouTube

@@ -12,7 +12,7 @@ class Picture extends Component {
 
     return(
       <div className="pic grid-item" >
-        <img src={this.props.thumbnails} alt="thumbnail" onClick={(event) => this.handleClick(event)} />
+        <img tabindex='0' src={this.props.thumbnails} alt="thumbnail" onClick={(event) => this.handleClick(event)} />
       </div>
     )
   }

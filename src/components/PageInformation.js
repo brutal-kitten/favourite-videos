@@ -23,7 +23,7 @@ class PageInformation extends Component {
           setStartIndex={this.props.setStartIndex}
         />
         <div className="pageInput">
-          <input id="selectPage" min="1" type="number" max={this.props.totalPages} value={this.props.currentPage} onChange={(event) => this.handleChange(event)} />
+          <input tabindex='0' id="selectPage" min="1" type="number" max={this.props.totalPages} value={this.props.currentPage} onChange={(event) => this.handleChange(event)} />
         </div>
         <div className="totalPage">of</div>
         <span className="totalPagesNumber">{this.props.totalPages}</span>

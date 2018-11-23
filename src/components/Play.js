@@ -12,7 +12,7 @@ class Play extends Component {
 
     return(
       <div className="play">
-        <button className="buttonPlay" type="button" onClick={(event) => this.handleClick(event)}>
+        <button tabindex='0' className="buttonPlay" type="button" onClick={(event) => this.handleClick(event)}>
           <span className="glyphicon glyphicon-play-circle"></span>
         </button>
       </div>

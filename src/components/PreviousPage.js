@@ -19,7 +19,7 @@ class PreviousPage extends Component {
 
     return (
       <div className="previousPage">
-        <button className="buttonPreviousPage" onClick={(event) => this.handleChange(event)}>
+        <button tabindex='0' className="buttonPreviousPage" onClick={(event) => this.handleChange(event)}>
           <span className="glyphicon glyphicon-chevron-left"></span>
         </button>
       </div>

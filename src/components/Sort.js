@@ -20,7 +20,7 @@ class Sort extends Component {
     return(
       <div className="sort" >
         <span className="sortText">Sort by</span>
-        <select id="select" value={this.state.value} onChange={(event) => this.handleChange(event)}>
+        <select tabindex='0' id="select" value={this.state.value} onChange={(event) => this.handleChange(event)}>
           <option value="new">Newest added</option>
           <option value="old">Oldest added</option>
         </select>

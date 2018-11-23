@@ -12,7 +12,7 @@ class RemoveFromFavorite extends Component {
 
     return(
       <div className="removeFromFav" >
-        <button className="buttonRemoveFromFav" type="button" onClick={(event) => this.handleClick(event)}>
+        <button tabindex='0' className="buttonRemoveFromFav" type="button" onClick={(event) => this.handleClick(event)}>
           <span className="glyphicon glyphicon-star"></span>
         </button>
       </div>

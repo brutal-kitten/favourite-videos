@@ -16,7 +16,7 @@ class ElementsPerPagePicker extends Component {
     return (
       <div className="elementsPerPagePicker">
         <span className="pickerText">Elements on page</span>
-        <select id="selectNumber" value={this.props.elementsPerPage} onChange={(event) => this.handleChange(event)}>
+        <select tabindex='0' id="selectNumber" value={this.props.elementsPerPage} onChange={(event) => this.handleChange(event)}>
           <option value="10">10</option>
           <option value="8">8</option>
           <option value="6">6</option>

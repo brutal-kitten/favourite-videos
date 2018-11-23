@@ -14,7 +14,7 @@ class Delete extends Component {
 
     return(
       <div className="delete" >
-        <button className="buttonDelete" type="button" onClick={(event) => this.handleClick(event)} >
+        <button tabindex='0' className="buttonDelete" type="button" onClick={(event) => this.handleClick(event)} >
           <span className="glyphicon glyphicon-trash"></span>
         </button>
       </div>

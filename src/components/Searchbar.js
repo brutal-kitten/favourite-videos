@@ -74,12 +74,12 @@ class Searchbar extends Component {
       <div className="searchbar">
         <form onSubmit={(event) => this.handleSubmit(event)}>
           Enter video URL or identifier: <br/>
-          <input className="search" type="text"
+          <input tabindex='0' className="search" type="text"
             placeholder= "Let's find a video"
             value={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}
           />
-          <button className="addToList" type="submit"><span className="glyphicon glyphicon-plus"></span></button>
+          <button tabindex='0' className="addToList" type="submit"><span className="glyphicon glyphicon-plus"></span></button>
         </form>
       </div>
     )

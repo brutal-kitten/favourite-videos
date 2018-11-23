@@ -13,7 +13,7 @@ class ReturnToList extends Component {
 
     return(
       <div className="showFav" >
-        <button className="buttonReturnToList" type="button" onClick={(event) => this.handleClick(event)}>Return to list</button>
+        <button tabindex='0' className="buttonReturnToList" type="button" onClick={(event) => this.handleClick(event)}>Return to list</button>
       </div>
     )
   }

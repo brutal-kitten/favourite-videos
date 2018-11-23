@@ -13,7 +13,7 @@ class ShowDemo extends Component {
 
     return(
       <div className="showDemo" >
-        <button className="buttonShowDemo" type="button" onClick={(event) => this.handleClick(event)}>Show demolist</button>
+        <button tabindex='0' className="buttonShowDemo" type="button" onClick={(event) => this.handleClick(event)}>Show demolist</button>
       </div>
     )
   }

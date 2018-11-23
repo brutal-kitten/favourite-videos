@@ -3,8 +3,18 @@ import Play from './Play';
 import Delete from './Delete';
 import AddFav from './AddFav'
 import RemoveFromFavorite from './RemoveFromFavorite'
+import PropTypes from 'prop-types';
 
 class ButtonsPanel extends Component {
+
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    playVideo: PropTypes.func.isRequired,
+    deleteVideo: PropTypes.func.isRequired,
+    isfavorite: PropTypes.bool.isRequired,
+    addToFavorite: PropTypes.func.isRequired,
+    removeFromFavorite: PropTypes.func.isRequired
+  }
 
   state = {
     key: ''

@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class Delete extends Component {
+
+  static propTypes = {
+    deleteVideo: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired
+  }
 
   //calls function to delete video by id
   handleClick = (event) => {
@@ -14,7 +20,7 @@ class Delete extends Component {
 
     return(
       <div className="delete" >
-        <button tabindex='0' className="buttonDelete" type="button" onClick={(event) => this.handleClick(event)} >
+        <button tabIndex='0' className="buttonDelete" type="button" onClick={(event) => this.handleClick(event)} >
           <span className="glyphicon glyphicon-trash"></span>
         </button>
       </div>

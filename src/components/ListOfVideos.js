@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
 import VideoContainer from './VideoContainer';
 import NavButtons from './NavButtons';
+import PropTypes from 'prop-types';
 
 
 class ListOfVideos extends Component {
+
+  static propTypes = {
+    showFav: PropTypes.bool.isRequired,
+    showDemo: PropTypes.func.isRequired,
+    deleteList: PropTypes.func.isRequired,
+    returnToList: PropTypes.func.isRequired,
+    showFavorite: PropTypes.func.isRequired,
+    sort: PropTypes.func.isRequired,
+    addToFavorite: PropTypes.func.isRequired,
+    removeFromFavorite: PropTypes.func.isRequired,
+    deleteVideo: PropTypes.func.isRequired,
+    list: PropTypes.array.isRequired
+
+  }
 
   render() {
 
@@ -32,8 +47,6 @@ class ListOfVideos extends Component {
               removeFromFavorite={this.props.removeFromFavorite}
               addToFavorite={this.props.addToFavorite}
               deleteVideo={this.props.deleteVideo}
-              playVideo={this.props.playVideo}
-              changeSearchResultError={this.props.changeSearchResultError}
             />
           )))}
         </div>

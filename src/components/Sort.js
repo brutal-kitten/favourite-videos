@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Sort extends Component {
+
+  static propTypes = {
+    sort: PropTypes.func.isRequired
+  }
 
   state = {
     value: 'new'
@@ -20,7 +25,7 @@ class Sort extends Component {
     return(
       <div className="sort" >
         <span className="sortText">Sort by</span>
-        <select tabindex='0' id="select" value={this.state.value} onChange={(event) => this.handleChange(event)}>
+        <select tabIndex='0' id="select" value={this.state.value} onChange={(event) => this.handleChange(event)}>
           <option value="new">Newest added</option>
           <option value="old">Oldest added</option>
         </select>

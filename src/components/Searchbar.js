@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 
 
 class Searchbar extends Component {
+
+  static propTypes = {
+    changeSearchResultError: PropTypes.func.isRequired,
+    addToList: PropTypes.func.isRequired
+  }
 
   state = {
     query: '',
@@ -74,12 +79,12 @@ class Searchbar extends Component {
       <div className="searchbar">
         <form onSubmit={(event) => this.handleSubmit(event)}>
           Enter video URL or identifier: <br/>
-          <input tabindex='0' className="search" type="text"
+          <input tabIndex='0' className="search" type="text"
             placeholder= "Let's find a video"
             value={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}
           />
-          <button tabindex='0' className="addToList" type="submit"><span className="glyphicon glyphicon-plus"></span></button>
+          <button tabIndex='0' className="addToList" type="submit"><span className="glyphicon glyphicon-plus"></span></button>
         </form>
       </div>
     )

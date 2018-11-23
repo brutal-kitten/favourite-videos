@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class Play extends Component {
+
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    playVideo: PropTypes.func.isRequired,
+  }
 
   handleClick = (event) => {
 
@@ -12,7 +18,7 @@ class Play extends Component {
 
     return(
       <div className="play">
-        <button tabindex='0' className="buttonPlay" type="button" onClick={(event) => this.handleClick(event)}>
+        <button tabIndex='0' className="buttonPlay" type="button" onClick={(event) => this.handleClick(event)}>
           <span className="glyphicon glyphicon-play-circle"></span>
         </button>
       </div>

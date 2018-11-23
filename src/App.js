@@ -169,8 +169,6 @@ class App extends Component {
           addToFavorite={this.addToFavorite}
           removeFromFavorite={this.removeFromFavorite}
           deleteVideo={this.deleteVideo}
-          playVideo={this.props.playVideo}
-          changeSearchResultError={this.changeSearchResultError}
         />
       </div>
     )

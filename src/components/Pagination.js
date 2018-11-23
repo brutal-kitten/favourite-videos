@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
-import ListOfVideos from './ListOfVideos'
-import PaginationBox from './PaginationBox'
+import ListOfVideos from './ListOfVideos';
+import PaginationBox from './PaginationBox';
+import PropTypes from 'prop-types';
 
 class Pagination extends Component {
 
+  static propTypes = {
+    recalculatePages: PropTypes.bool.isRequired,
+    recalculatePagesSetFalse: PropTypes.func.isRequired,
+    showDemo: PropTypes.func.isRequired,
+    deleteList: PropTypes.func.isRequired,
+    sort: PropTypes.func.isRequired,
+    listOfVideo: PropTypes.array.isRequired,
+    addToFavorite: PropTypes.func.isRequired,
+    removeFromFavorite: PropTypes.func.isRequired,
+    deleteVideo: PropTypes.func.isRequired,
+
+  }
 
   state = {
     showFav: false,

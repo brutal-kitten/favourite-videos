@@ -2,10 +2,23 @@ import React, { Component } from 'react';
 import Infobox from './Infobox';
 import Picture from './Picture';
 import ButtonsPanel from './ButtonsPanel';
-import ShowVideo from './ShowVideo';
-import Modal from './Modal'
+import Modal from './Modal';
+import PropTypes from 'prop-types';
 
 class VideoContainer extends Component {
+
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    likes: PropTypes.string.isRequired,
+    views: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    deleteVideo: PropTypes.func.isRequired,
+    isfavorite: PropTypes.bool.isRequired,
+    addToFavorite: PropTypes.func.isRequired,
+    removeFromFavorite: PropTypes.func.isRequired,
+    thumbnails: PropTypes.string.isRequired
+  }
 
   state = {
     showModal: false

@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ShowFavorite extends Component {
+
+  static propTypes = {
+    showFavorite: PropTypes.func.isRequired
+  }
 
   //calls function that change state in Pagination
   handleClick = (event) => {
@@ -12,7 +17,7 @@ class ShowFavorite extends Component {
   render() {
     return(
       <div className="showFav" >
-        <button tabindex='0' className="buttonShowFav" type="button" onClick={(event) => this.handleClick(event)}>Show favorite</button>
+        <button tabIndex='0' className="buttonShowFav" type="button" onClick={(event) => this.handleClick(event)}>Show favorite</button>
       </div>
     )
   }

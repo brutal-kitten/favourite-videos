@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import PreviousPage from './PreviousPage';
 import NextPage from './NextPage';
+import PropTypes from 'prop-types';
 
 class PageInformation extends Component {
+
+  static propTypes = {
+    setStartIndex: PropTypes.func.isRequired,
+    totalPages: PropTypes.number.isRequired,
+    currentPage: PropTypes.number.isRequired
+  }
 
   //calls function that recalculate and set state (startIndex, currentPage) in Pagination component
   handleChange = (event) => {
@@ -23,7 +30,7 @@ class PageInformation extends Component {
           setStartIndex={this.props.setStartIndex}
         />
         <div className="pageInput">
-          <input tabindex='0' id="selectPage" min="1" type="number" max={this.props.totalPages} value={this.props.currentPage} onChange={(event) => this.handleChange(event)} />
+          <input tabIndex='0' id="selectPage" min="1" type="number" max={this.props.totalPages} value={this.props.currentPage} onChange={(event) => this.handleChange(event)} />
         </div>
         <div className="totalPage">of</div>
         <span className="totalPagesNumber">{this.props.totalPages}</span>

@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import YouTube from 'react-youtube';
+import PropTypes from 'prop-types';
 
 
 class ShowVideo extends Component {
+
+  static propTypes = {
+    videoId: PropTypes.string.isRequired,
+    closeModal:  PropTypes.func.isRequired
+  }
 
   handleClick = (event) => {
 
@@ -22,7 +28,7 @@ class ShowVideo extends Component {
 
     return(
       <div className="window">
-        <button tabindex='0' type="button"  className="closeModal" onClick={(event) => this.handleClick(event)}>
+        <button tabIndex='0' type="button"  className="closeModal" onClick={(event) => this.handleClick(event)}>
           <span className="glyphicon glyphicon-remove"></span>
         </button>
         <YouTube

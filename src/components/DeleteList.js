@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class DeleteList extends Component {
+
+  static propTypes = {
+    deleteList: PropTypes.func.isRequired
+  }
 
   //calls function to delete whole list
   handleClick = (event) => {
@@ -14,7 +19,7 @@ class DeleteList extends Component {
 
     return(
       <div className="deleteList" >
-        <button tabindex='0' className="buttonDeleteList" type="button" onClick={(event) => this.handleClick(event)}>Delete list</button>
+        <button tabIndex='0' className="buttonDeleteList" type="button" onClick={(event) => this.handleClick(event)}>Delete list</button>
       </div>
     )
   }

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should display a button 1`] = `
+<div
+  className="deleteList"
+>
+  <button
+    className="buttonDeleteList"
+    onClick={[Function]}
+    tabIndex="0"
+    type="button"
+  >
+    Delete list
+  </button>
+</div>
+`;

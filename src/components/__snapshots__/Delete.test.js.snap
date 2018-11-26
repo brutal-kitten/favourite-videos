@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should display a button 1`] = `
+<div
+  className="delete"
+>
+  <button
+    className="buttonDelete"
+    onClick={[Function]}
+    tabIndex="0"
+    type="button"
+  >
+    <span
+      className="glyphicon glyphicon-trash"
+    />
+  </button>
+</div>
+`;

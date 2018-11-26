@@ -10,11 +10,7 @@ configure({ adapter: new Adapter() });
 
 it('should display a button', () => {
   const tree = TestRenderer.create(
-    <div className="delete" >
-      <button tabIndex='0' className="buttonDelete" type="button" onClick={(event) => this.handleClick(event)} >
-        <span className="glyphicon glyphicon-trash"></span>
-      </button>
-    </div>).toJSON();
+    <Delete />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

@@ -11,11 +11,7 @@ configure({ adapter: new Adapter() });
 
 it('should display a button', () => {
   const tree = TestRenderer.create(
-    <div className="addFav" >
-      <button tabIndex='0' className="buttonAddFav" type="button" onClick={(event) => this.handleClick(event)}>
-        <span className="glyphicon glyphicon-star-empty"></span>
-      </button>
-    </div>).toJSON();
+    <AddFav />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

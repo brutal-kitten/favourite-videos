@@ -10,11 +10,7 @@ configure({ adapter: new Adapter() });
 
 it('should display a button', () => {
   const tree = TestRenderer.create(
-    <div className="removeFromFav" >
-      <button tabIndex='0' className="buttonRemoveFromFav" type="button" onClick={(event) => this.handleClick(event)}>
-        <span className="glyphicon glyphicon-star"></span>
-      </button>
-    </div>).toJSON();
+    <RemoveFromFavorite />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

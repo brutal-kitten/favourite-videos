@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should display an image 1`] = `
+<div
+  className="pic grid-item"
+>
+  <img
+    alt="thumbnail"
+    onClick={[Function]}
+    tabIndex="0"
+  />
+</div>
+`;

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<div
+  className="sort"
+>
+  <span
+    className="sortText"
+  >
+    Sort by
+  </span>
+  <select
+    id="select"
+    onChange={[Function]}
+    tabIndex="0"
+    value="new"
+  >
+    <option
+      value="new"
+    >
+      Newest added
+    </option>
+    <option
+      value="old"
+    >
+      Oldest added
+    </option>
+  </select>
+</div>
+`;

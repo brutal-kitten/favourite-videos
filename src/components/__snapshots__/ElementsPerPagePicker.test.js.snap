@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<div
+  className="elementsPerPagePicker"
+>
+  <span
+    className="pickerText"
+  >
+    Elements on page
+  </span>
+  <select
+    id="selectNumber"
+    onChange={[Function]}
+    tabIndex="0"
+  >
+    <option
+      value="10"
+    >
+      10
+    </option>
+    <option
+      value="8"
+    >
+      8
+    </option>
+    <option
+      value="6"
+    >
+      6
+    </option>
+    <option
+      value="4"
+    >
+      4
+    </option>
+    <option
+      value="2"
+    >
+      2
+    </option>
+  </select>
+</div>
+`;

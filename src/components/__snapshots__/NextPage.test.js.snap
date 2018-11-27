@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<div
+  className="nextPage"
+>
+  <button
+    className="buttonNextPage"
+    onClick={[Function]}
+    tabIndex="0"
+  >
+    <span
+      className="glyphicon glyphicon-chevron-right"
+    />
+  </button>
+</div>
+`;

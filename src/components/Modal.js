@@ -15,13 +15,15 @@ class Modal extends Component {
 
   render() {
 
+    let node = this.props.modalRoot ? this.props.modalRoot : modalRoot;
+
     if(this.props.showModal) {
       return ReactDOM.createPortal(
         <ShowVideo
           videoId={this.props.videoId}
           closeModal={this.props.closeModal}
         />,
-        modalRoot);
+        node);
     } else return null;
   }
 }

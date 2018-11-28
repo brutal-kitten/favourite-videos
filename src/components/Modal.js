@@ -14,7 +14,7 @@ class Modal extends Component {
   }
 
   render() {
-
+    //this is for testing purpose
     let node = this.props.modalRoot ? this.props.modalRoot : modalRoot;
 
     if(this.props.showModal) {

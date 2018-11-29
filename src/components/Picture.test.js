@@ -22,7 +22,12 @@ describe ('shoud call playVideo function after click', () => {
     thumbnails: 'some url'
   };
 
-  const wrapper = shallow(<Picture {...props}/>);
+  const wrapper = mount(<Picture {...props}/>);
+
+  it('should have given image url', () =>  {
+    expect(wrapper.prop('thumbnails')).toBe('some url');
+  });
+  
 
   wrapper.find('img').simulate('click', {
     preventDefault: () => {},
@@ -34,8 +39,4 @@ describe ('shoud call playVideo function after click', () => {
     expect(mockPlayVideo.mock.calls[0][0]).toBe("127456");
   });
 
-
-  it('should have given image url', () =>  {
-    expect(props.thumbnails).toBe('some url');
-  })
 })

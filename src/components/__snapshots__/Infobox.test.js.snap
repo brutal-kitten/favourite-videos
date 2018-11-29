@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<div
+  className="info"
+>
+  <div
+    className="title infobox"
+  />
+  <div
+    className="addedAt infobox"
+  />
+  <div
+    className="likes infobox"
+  >
+    <span />
+     
+    <span
+      className="glyphicon glyphicon-heart"
+    />
+  </div>
+  <div
+    className="views infobox"
+  >
+    <span />
+     views
+  </div>
+</div>
+`;

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<div
+  className="pageInfo"
+>
+  <div
+    className="previousPage"
+  >
+    <button
+      className="buttonPreviousPage"
+      onClick={[Function]}
+      tabIndex="0"
+    >
+      <span
+        className="glyphicon glyphicon-chevron-left"
+      />
+    </button>
+  </div>
+  <div
+    className="pageInput"
+  >
+    <input
+      id="selectPage"
+      min="1"
+      onChange={[Function]}
+      tabIndex="0"
+      type="number"
+    />
+  </div>
+  <div
+    className="totalPage"
+  >
+    of
+  </div>
+  <span
+    className="totalPagesNumber"
+  />
+  <div
+    className="nextPage"
+  >
+    <button
+      className="buttonNextPage"
+      onClick={[Function]}
+      tabIndex="0"
+    >
+      <span
+        className="glyphicon glyphicon-chevron-right"
+      />
+    </button>
+  </div>
+</div>
+`;

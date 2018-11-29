@@ -6,7 +6,7 @@ import { shallow, mount, render, ReactWrapper } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import jsdom from 'jsdom';
-import modalRoot from './Modal.js'
+
 
 configure({ adapter: new Adapter() });
 

@@ -94,3 +94,12 @@ describe('when the item is not marked as favorite, the <AddFav /> component shou
     expect(wrapper2.find("div.removeFromFav").exists()).toBeFalsy();
   });
 })
+
+it("trigger changes state", () => {
+  let initialState = wrapper.state('key');
+  wrapper.find('button.buttonRemoveFromFav').simulate('click', {
+    preventDefault: () => {},
+  });
+  expect(wrapper.state('key')).not.toBe(initialState);
+
+});

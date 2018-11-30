@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<div
+  className="navButtons grid-container2"
+>
+  <div
+    className="showDemo"
+  >
+    <button
+      className="buttonShowDemo"
+      onClick={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      Show demolist
+    </button>
+  </div>
+  <div
+    className="deleteList"
+  >
+    <button
+      className="buttonDeleteList"
+      onClick={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      Delete list
+    </button>
+  </div>
+  <div
+    className="showFav"
+  >
+    <button
+      className="buttonShowFav"
+      onClick={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      Show favorite
+    </button>
+  </div>
+  <div
+    className="sort"
+  >
+    <span
+      className="sortText"
+    >
+      Sort by
+    </span>
+    <select
+      id="select"
+      onChange={[Function]}
+      tabIndex="0"
+      value="new"
+    >
+      <option
+        value="new"
+      >
+        Newest added
+      </option>
+      <option
+        value="old"
+      >
+        Oldest added
+      </option>
+    </select>
+  </div>
+</div>
+`;

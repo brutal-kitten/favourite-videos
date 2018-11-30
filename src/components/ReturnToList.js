@@ -17,7 +17,7 @@ class ReturnToList extends Component {
   render () {
 
     return(
-      <div className="showFav" >
+      <div className="returnToList" >
         <button tabIndex='0' className="buttonReturnToList" type="button" onClick={(event) => this.handleClick(event)}>Return to list</button>
       </div>
     )

@@ -2,7 +2,7 @@
 
 exports[`should display a button 1`] = `
 <div
-  className="showFav"
+  className="returnToList"
 >
   <button
     className="buttonReturnToList"

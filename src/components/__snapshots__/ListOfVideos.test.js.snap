@@ -1,0 +1,267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<div
+  className="list"
+>
+  <h3>
+    My list
+  </h3>
+  <div
+    className="navButtons grid-container2"
+  >
+    <div
+      className="showDemo"
+    >
+      <button
+        className="buttonShowDemo"
+        onClick={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        Show demolist
+      </button>
+    </div>
+    <div
+      className="deleteList"
+    >
+      <button
+        className="buttonDeleteList"
+        onClick={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        Delete list
+      </button>
+    </div>
+    <div
+      className="showFav"
+    >
+      <button
+        className="buttonShowFav"
+        onClick={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        Show favorite
+      </button>
+    </div>
+    <div
+      className="sort"
+    >
+      <span
+        className="sortText"
+      >
+        Sort by
+      </span>
+      <select
+        id="select"
+        onChange={[Function]}
+        tabIndex="0"
+        value="new"
+      >
+        <option
+          value="new"
+        >
+          Newest added
+        </option>
+        <option
+          value="old"
+        >
+          Oldest added
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    className="listContainer"
+  >
+    <div
+      className="grid-container videocontainer"
+    >
+      <div
+        className="pic grid-item"
+      >
+        <img
+          alt="thumbnail"
+          onClick={[Function]}
+          src="https://i.ytimg.com/vi/hY7m5jjJ9mM/default.jpg"
+          tabIndex="0"
+        />
+      </div>
+      <div
+        className="panel grid-item"
+      >
+        <div
+          className="play"
+        >
+          <button
+            className="buttonPlay"
+            onClick={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="glyphicon glyphicon-play-circle"
+            />
+          </button>
+        </div>
+        <div
+          className="delete"
+        >
+          <button
+            className="buttonDelete"
+            onClick={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="glyphicon glyphicon-trash"
+            />
+          </button>
+        </div>
+        <div
+          className="addFav"
+        >
+          <button
+            className="buttonAddFav"
+            onClick={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="glyphicon glyphicon-star-empty"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        className="info"
+      >
+        <div
+          className="title infobox"
+        >
+          CATS will make you LAUGH YOUR HEAD OFF - Funny CAT compilation
+        </div>
+        <div
+          className="addedAt infobox"
+        >
+          Wed May 31 2017
+        </div>
+        <div
+          className="likes infobox"
+        >
+          <span>
+            327046
+          </span>
+           
+          <span
+            className="glyphicon glyphicon-heart"
+          />
+        </div>
+        <div
+          className="views infobox"
+        >
+          <span>
+            81007082
+          </span>
+           views
+        </div>
+      </div>
+    </div>
+    <div
+      className="grid-container videocontainer"
+    >
+      <div
+        className="pic grid-item"
+      >
+        <img
+          alt="thumbnail"
+          onClick={[Function]}
+          src="https://i.ytimg.com/vi/mRf3-JkwqfU/default.jpg"
+          tabIndex="0"
+        />
+      </div>
+      <div
+        className="panel grid-item"
+      >
+        <div
+          className="play"
+        >
+          <button
+            className="buttonPlay"
+            onClick={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="glyphicon glyphicon-play-circle"
+            />
+          </button>
+        </div>
+        <div
+          className="delete"
+        >
+          <button
+            className="buttonDelete"
+            onClick={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="glyphicon glyphicon-trash"
+            />
+          </button>
+        </div>
+        <div
+          className="addFav"
+        >
+          <button
+            className="buttonAddFav"
+            onClick={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="glyphicon glyphicon-star-empty"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        className="info"
+      >
+        <div
+          className="title infobox"
+        >
+          Funny Puppies And Cute Puppy Videos Compilation 2016 [BEST OF]
+        </div>
+        <div
+          className="addedAt infobox"
+        >
+          Wed Aug 31 2016
+        </div>
+        <div
+          className="likes infobox"
+        >
+          <span>
+            71389
+          </span>
+           
+          <span
+            className="glyphicon glyphicon-heart"
+          />
+        </div>
+        <div
+          className="views infobox"
+        >
+          <span>
+            17981823
+          </span>
+           views
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

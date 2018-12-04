@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<div
+  className="searchbar"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    Enter video URL or identifier: 
+    <br />
+    <input
+      className="search"
+      onChange={[Function]}
+      placeholder="Let's find a video"
+      tabIndex="0"
+      type="text"
+      value=""
+    />
+    <button
+      className="addToList"
+      tabIndex="0"
+      type="submit"
+    >
+      <span
+        className="glyphicon glyphicon-plus"
+      />
+    </button>
+  </form>
+</div>
+`;

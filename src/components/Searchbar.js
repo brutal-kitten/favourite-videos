@@ -17,14 +17,14 @@ class Searchbar extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.changeSearchResultError(false);
     this.detectID();
     this.clearID();
-    this.props.changeSearchResultError(false);
   }
 
   //sets new id and calls function that fetch info about video
   setId = (newId) => {
-    this.setState({videoId: newId});
+    this.updateVideoId(newId);
     this.clearQuery();
     this.getInfo(newId);
   }
@@ -34,14 +34,17 @@ class Searchbar extends Component {
     const url = `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=AIzaSyB7asSzTvcMogycBslu8o4RB3DjOumaqtA&part=snippet,contentDetails,statistics,status`
     fetch(url)
       .then((response) => response.json())
-      .then((result) => {
-        if(result.items[0]) {
-          this.props.addToList({id: result.items[0].id, favorite: false, date: `${new Date(result.items[0].snippet.publishedAt).toDateString()}`, title: result.items[0].snippet.title, views: result.items[0].statistics.viewCount, likes: result.items[0].statistics.likeCount, thumbnails: result.items[0].snippet.thumbnails.default.url });
-        } else {
-          this.props.changeSearchResultError(true);
-        }
-      })
+      .then((result) => this.handleResult(result))
+      .catch((err) => this.props.changeSearchResultError(true))
   }
+
+  handleResult = (result) => {
+    if(result.items[0]) {
+      this.props.addToList({id: result.items[0].id, favorite: false, date: `${new Date(result.items[0].snippet.publishedAt).toDateString()}`, title: result.items[0].snippet.title, views: result.items[0].statistics.viewCount, likes: result.items[0].statistics.likeCount, thumbnails: result.items[0].snippet.thumbnails.default.url });
+   } else {
+      this.props.changeSearchResultError(true);
+    }
+  };
 
   //check what version of link is it and call function that set state
   detectID = () => {
@@ -60,6 +63,10 @@ class Searchbar extends Component {
   //update state
   updateQuery = (value) => {
     this.setState({query: value});
+  }
+
+  updateVideoId = (id) => {
+    this.setState({videoId: id});
   }
 
   //clear query and update state

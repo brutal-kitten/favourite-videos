@@ -14,8 +14,7 @@ class Pagination extends Component {
     listOfVideo: PropTypes.array.isRequired,
     addToFavorite: PropTypes.func.isRequired,
     removeFromFavorite: PropTypes.func.isRequired,
-    deleteVideo: PropTypes.func.isRequired,
-
+    deleteVideo: PropTypes.func.isRequired
   }
 
   state = {
@@ -29,8 +28,9 @@ class Pagination extends Component {
   //reculculate and set new state - favorites always starts from 1st page
   showFavorite = () => {
 
-    let total = this.calculateTotalPagesNumber(this.props.listOfVideo.filter(item => (item.favorite === true)).length, this.state.elementsPerPage);
-    this.setState({showFav: true, startIndex: 0, currentPage: 1, totalPages: total});
+    let total = this.calculateTotalPagesNumber(
+      this.props.listOfVideo.filter(item => (item.favorite === true)).length, this.state.elementsPerPage);
+      this.setState({showFav: true, startIndex: 0, currentPage: 1, totalPages: total});
   }
 
   //change state so user will see all list instead of favorite
@@ -51,7 +51,11 @@ class Pagination extends Component {
 
     let length = this.filterList(this.props.listOfVideo).length;
     let totalPagesNumber = this.calculateTotalPagesNumber(length, number);
-    this.setState({elementsPerPage: number, startIndex: 0, totalPages: totalPagesNumber});
+    this.setState({
+      elementsPerPage: number,
+      startIndex: 0,
+      totalPages: totalPagesNumber,
+      currentPage: 1});
   }
 
   //with given new current page reculculate start index and set new state
@@ -90,30 +94,36 @@ class Pagination extends Component {
     return filteredList;
   }
 
+  checkForUpdate () {
+    let length = this.filterList(this.props.listOfVideo).length;
+    let start = parseInt(this.state.startIndex, 10);
+    let elPerPage =  parseInt(this.state.elementsPerPage, 10);
+    let totalPagesNumber = this.calculateTotalPagesNumber(length, elPerPage);
+
+    //when user delete all items in array
+    if (length === 0) {
+      this.setState({totalPages: 1, currentPage: 1, startIndex: 0, elementsPerPage: 10});
+      this.props.recalculatePagesSetFalse();
+      } else if (start >= length) {
+       // when user delete item and it was last item on the carrent page
+       // and now user shoud see previous page
+          let startIndex = elPerPage*(totalPagesNumber - 1);
+          this.setState({totalPages: totalPagesNumber, startIndex: startIndex, currentPage: totalPagesNumber});
+          this.props.recalculatePagesSetFalse();
+        } else if (totalPagesNumber > this.state.totalPages) {
+            //when user add item or items
+            this.setState({totalPages: totalPagesNumber});
+            this.props.recalculatePagesSetFalse();
+        }
+  }
+
   /* each time user delete item or add new item or delete full list recalculate
    and set information about current page, total pages number, startIndex */
   componentDidUpdate () {
 
-    if(this.props.recalculatePages === true) {
-
-      let length = this.filterList(this.props.listOfVideo).length;
-      let start = parseInt(this.state.startIndex, 10);
-      let elPerPage =  parseInt(this.state.elementsPerPage, 10);
-      let totalPagesNumber = this.calculateTotalPagesNumber(length, elPerPage);
-
-      if (length === 0) {
-        this.setState({totalPages: 1, currentPage: 1, startIndex: 0, elementsPerPage: 10});
-        this.props.recalculatePagesSetFalse();
-      } else if (start >= length) {
-          let startIndex = elPerPage*(totalPagesNumber - 1);
-          this.setState({totalPages: totalPagesNumber, startIndex: startIndex, currentPage: totalPagesNumber});
-          this.props.recalculatePagesSetFalse();
-          } else if (totalPagesNumber > this.state.totalPages) {
-              this.setState({totalPages: totalPagesNumber});
-              this.props.recalculatePagesSetFalse();
-          }
-    }
-
+    if (this.props.recalculatePages === true) {
+      this.checkForUpdate();
+    };
   }
 
   render () {

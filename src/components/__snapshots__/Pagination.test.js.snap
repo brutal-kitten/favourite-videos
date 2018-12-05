@@ -1,0 +1,363 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="paginationBox"
+  >
+    <div
+      className="elementsPerPagePicker"
+    >
+      <span
+        className="pickerText"
+      >
+        Elements on page
+      </span>
+      <select
+        id="selectNumber"
+        onChange={[Function]}
+        tabIndex="0"
+        value={10}
+      >
+        <option
+          value="10"
+        >
+          10
+        </option>
+        <option
+          value="8"
+        >
+          8
+        </option>
+        <option
+          value="6"
+        >
+          6
+        </option>
+        <option
+          value="4"
+        >
+          4
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+      </select>
+    </div>
+    <div
+      className="pageInfo"
+    >
+      <div
+        className="previousPage"
+      >
+        <button
+          className="buttonPreviousPage"
+          onClick={[Function]}
+          tabIndex="0"
+        >
+          <span
+            className="glyphicon glyphicon-chevron-left"
+          />
+        </button>
+      </div>
+      <div
+        className="pageInput"
+      >
+        <input
+          id="selectPage"
+          max={1}
+          min="1"
+          onChange={[Function]}
+          tabIndex="0"
+          type="number"
+          value={1}
+        />
+      </div>
+      <div
+        className="totalPage"
+      >
+        of
+      </div>
+      <span
+        className="totalPagesNumber"
+      >
+        1
+      </span>
+      <div
+        className="nextPage"
+      >
+        <button
+          className="buttonNextPage"
+          onClick={[Function]}
+          tabIndex="0"
+        >
+          <span
+            className="glyphicon glyphicon-chevron-right"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="list"
+  >
+    <h3>
+      My list
+    </h3>
+    <div
+      className="navButtons grid-container2"
+    >
+      <div
+        className="showDemo"
+      >
+        <button
+          className="buttonShowDemo"
+          onClick={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          Show demolist
+        </button>
+      </div>
+      <div
+        className="deleteList"
+      >
+        <button
+          className="buttonDeleteList"
+          onClick={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          Delete list
+        </button>
+      </div>
+      <div
+        className="showFav"
+      >
+        <button
+          className="buttonShowFav"
+          onClick={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          Show favorite
+        </button>
+      </div>
+      <div
+        className="sort"
+      >
+        <span
+          className="sortText"
+        >
+          Sort by
+        </span>
+        <select
+          id="select"
+          onChange={[Function]}
+          tabIndex="0"
+          value="new"
+        >
+          <option
+            value="new"
+          >
+            Newest added
+          </option>
+          <option
+            value="old"
+          >
+            Oldest added
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      className="listContainer"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders properly 2`] = `
+<div
+  className="page"
+>
+  <div
+    className="paginationBox"
+  >
+    <div
+      className="elementsPerPagePicker"
+    >
+      <span
+        className="pickerText"
+      >
+        Elements on page
+      </span>
+      <select
+        id="selectNumber"
+        onChange={[Function]}
+        tabIndex="0"
+        value={10}
+      >
+        <option
+          value="10"
+        >
+          10
+        </option>
+        <option
+          value="8"
+        >
+          8
+        </option>
+        <option
+          value="6"
+        >
+          6
+        </option>
+        <option
+          value="4"
+        >
+          4
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+      </select>
+    </div>
+    <div
+      className="pageInfo"
+    >
+      <div
+        className="previousPage"
+      >
+        <button
+          className="buttonPreviousPage"
+          onClick={[Function]}
+          tabIndex="0"
+        >
+          <span
+            className="glyphicon glyphicon-chevron-left"
+          />
+        </button>
+      </div>
+      <div
+        className="pageInput"
+      >
+        <input
+          id="selectPage"
+          max={1}
+          min="1"
+          onChange={[Function]}
+          tabIndex="0"
+          type="number"
+          value={1}
+        />
+      </div>
+      <div
+        className="totalPage"
+      >
+        of
+      </div>
+      <span
+        className="totalPagesNumber"
+      >
+        1
+      </span>
+      <div
+        className="nextPage"
+      >
+        <button
+          className="buttonNextPage"
+          onClick={[Function]}
+          tabIndex="0"
+        >
+          <span
+            className="glyphicon glyphicon-chevron-right"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="list"
+  >
+    <h3>
+      My list
+    </h3>
+    <div
+      className="navButtons grid-container2"
+    >
+      <div
+        className="showDemo"
+      >
+        <button
+          className="buttonShowDemo"
+          onClick={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          Show demolist
+        </button>
+      </div>
+      <div
+        className="deleteList"
+      >
+        <button
+          className="buttonDeleteList"
+          onClick={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          Delete list
+        </button>
+      </div>
+      <div
+        className="showFav"
+      >
+        <button
+          className="buttonShowFav"
+          onClick={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          Show favorite
+        </button>
+      </div>
+      <div
+        className="sort"
+      >
+        <span
+          className="sortText"
+        >
+          Sort by
+        </span>
+        <select
+          id="select"
+          onChange={[Function]}
+          tabIndex="0"
+          value="new"
+        >
+          <option
+            value="new"
+          >
+            Newest added
+          </option>
+          <option
+            value="old"
+          >
+            Oldest added
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      className="listContainer"
+    />
+  </div>
+</div>
+`;

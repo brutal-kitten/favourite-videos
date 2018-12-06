@@ -182,6 +182,7 @@ describe('handleResult should work correct', () => {
     expect(mockAddToList.mock.calls.length).toBe(1);
     expect(mockChangeSearchResultError.mock.calls.length).toBe(1);
     expect(mockAddToList.mock.calls[0][0]).toEqual({"date": "Wed May 31 2017", "favorite": false, "id": "hY7m5jjJ9mM", "likes": "333383", "thumbnails": "https://i.ytimg.com/vi/hY7m5jjJ9mM/default.jpg", "title": "CATS will make you LAUGH YOUR HEAD OFF - Funny CAT compilation", "views": "82754092"});
+    mockAddToList.mockRestore();
   });
 
   it('should changeSearchResultError with true if there is no result', () => {
@@ -202,7 +203,44 @@ describe('in getInfo catch work properly', async() => {
       reject({error : "error"});
     })});
     let response = await instance.getInfo("hY7m5jjJ9mM");
-    expect(mockChangeSearchResultError.mock.calls.length).toBe(2);
     expect(mockChangeSearchResultError.mock.calls[1][0]).toBe(true);
   });
+
+  it('should call fetch ', async () => {
+    const wrapper = shallow(<Searchbar {...props}/>);
+    const instance = wrapper.instance();
+    const spy = jest.spyOn(instance, 'handleResult');
+    window.fetch = jest.fn().mockImplementation(() => {
+    return new Promise((resolve, reject) => {
+      resolve({
+      "items": [
+        {
+          "id": "hY7m5jjJ9mM",
+          "snippet": {
+            "publishedAt": "2017-05-31T09:30:02.000Z",
+            "channelId": "UC9obdDRxQkmn_4YpcBMTYLw",
+            "title": "CATS will make you LAUGH YOUR HEAD OFF - Funny CAT compilation",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/hY7m5jjJ9mM/default.jpg",
+                "width": 120,
+                "height": 90
+              }
+            },
+          },
+          "statistics": {
+            "viewCount": "82754092",
+            "likeCount": "333383",
+          }
+        }
+      ]
+    });
+  })});
+
+    return await instance.getInfo("hY7m5jjJ9mM")
+      .then(() => {
+        expect(window.fetch).toHaveBeenCalled();
+      })
+
+  })
 })

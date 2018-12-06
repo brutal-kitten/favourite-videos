@@ -32,7 +32,7 @@ class Searchbar extends Component {
   //fetch information about video from youtube and add item to list or set error state in App.js
   getInfo = (id) => {
     const url = `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=AIzaSyB7asSzTvcMogycBslu8o4RB3DjOumaqtA&part=snippet,contentDetails,statistics,status`
-    fetch(url)
+    return fetch(url)
       .then((response) => response.json())
       .then((result) => this.handleResult(result))
       .catch((err) => this.props.changeSearchResultError(true))

@@ -114,6 +114,8 @@ class Pagination extends Component {
             //when user add item or items
             this.setState({totalPages: totalPagesNumber});
             this.props.recalculatePagesSetFalse();
+        } else {
+          this.props.recalculatePagesSetFalse();
         }
   }
 

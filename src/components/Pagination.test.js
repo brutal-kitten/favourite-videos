@@ -174,4 +174,20 @@ describe('methods work correctly', () => {
     expect(wrapper.state('currentPage')).toBe(1);
     expect(wrapper.state('totalPages')).toBe(2);
   });
+
+  it('checkForUpdate do nothing and call recalculatePagesSetFalse', () => {
+    const state = {totalPages: 1, currentPage: 1, startIndex: 0, elementsPerPage: 2}
+    wrapper.setState(state);
+    wrapper.setProps({listOfVideo: [
+      {id: "hY7m5jjJ9mM", favorite: true },
+      {id: "mRf3-JkwqfU", favorite: false },
+    ]});
+      const instance = wrapper.instance();
+      instance.checkForUpdate();
+      expect(wrapper.state('totalPages')).toBe(state.totalPages);
+      expect(wrapper.state('currentPage')).toBe(state.currentPage);
+      expect(wrapper.state('startIndex')).toBe(state.startIndex);
+      expect(wrapper.state('elementsPerPage')).toBe(state.elementsPerPage);
+  })
+
 });

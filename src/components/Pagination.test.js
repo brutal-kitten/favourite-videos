@@ -29,11 +29,6 @@ const props = {
   deleteVideo: mockDeleteVideo
 }
 
-it('renders properly', () => {
-  const tree = TestRenderer.create(
-    <Pagination {...props}/>).toJSON();
-  expect(tree).toMatchSnapshot();
-});
 
 it('initialize Pagination with correct initial state', () => {
 

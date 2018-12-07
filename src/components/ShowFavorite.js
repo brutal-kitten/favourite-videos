@@ -17,7 +17,7 @@ class ShowFavorite extends Component {
   render() {
     return(
       <div className="showFav" >
-        <button tabIndex='0' className="buttonShowFav" type="button" onClick={(event) => this.handleClick(event)}>Show favorite</button>
+        <button tabIndex='0' className="buttonShowFav" type="button" onClick={(event) => this.handleClick(event)}>Show favourite</button>
       </div>
     )
   }

@@ -148,7 +148,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Make a list of your favorite videos</h1>
+          <h1>Make a list of your favourite videos</h1>
         </header>
         <Searchbar
           addToList={this.addToList}
